@@ -1,0 +1,20 @@
+.DS_Store
+.env
+.env.*
+node_modules/
+.cache/
+.netlify/
+.vscode/
+*.log
+
+# Source assets (raw photos and large originals not shipped to web)
+Image Gallery/
+Pricing/
+Logo.PNG
+Logo Transparent Background.PNG
+Desty - Portofolio .pdf
+Deju-Studio-Developer-Guide.html
+Deju-Studio-Developer-Guide.md
+
+# Plan + memory (live outside repo)
+.claude/

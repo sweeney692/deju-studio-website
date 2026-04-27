@@ -1,0 +1,44 @@
+/* Single source of design truth. Sourced from Deju-Studio-Developer-Guide.html. */
+:root {
+  /* Colour palette */
+  --deju-forest: #1E5128;
+  --deju-forest-deep: #143B1C;
+  --bone-cream: #F2EBDD;
+  --pure-bone: #FAF6EE;
+  --rich-onyx: #1A1A1A;
+  --sage-mist: #9CAE93;
+  --whisper: #E8DFCC;
+  --brass: #B08D57;
+  --brass-soft: #D4B98A;
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 192px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-hover: 300ms;
+  --t-entrance: 500ms;
+  --t-hero: 700ms;
+
+  /* Layout */
+  --container: 1200px;
+  --container-narrow: 720px;
+  --gutter: clamp(20px, 4vw, 48px);
+}
+
+/* Default surface */
+html { background: var(--bone-cream); color: var(--rich-onyx); }

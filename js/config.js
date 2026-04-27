@@ -1,0 +1,53 @@
+// Single source of truth for site-wide data.
+// Edit this file to update site-wide details across every page.
+window.DEJU = {
+  whatsappNumber: '6282340889808',
+  whatsappDisplay: '+62 823 4088 9808',
+  instagram: 'dejustudio',
+  instagramUrl: 'https://instagram.com/dejustudio',
+  email: 'contact.desty@gmail.com',
+  address: {
+    line1: 'Gn. Abang Street, Lodtunduh',
+    line2: 'Ubud, Bali 80582',
+    country: 'Indonesia',
+  },
+  // TODO: confirm exact opening hours from Google Business Profile.
+  hours: [
+    { days: 'Monday - Saturday', time: 'By appointment' },
+    { days: 'Sunday', time: 'Closed' },
+  ],
+  // TODO: replace with the precise embed URL from Google Maps -> Share -> Embed a map.
+  mapEmbedSrc: 'https://www.google.com/maps?q=Gn.+Abang+Street+Lodtunduh+Ubud+Bali+80582&output=embed',
+  mapsUrl: 'https://maps.google.com/?q=Gn.+Abang+Street+Lodtunduh+Ubud+Bali+80582',
+  googleBusinessUrl: 'https://share.google/qd7wFZgxsEgsR4bjJ',
+
+  // Pre-filled WhatsApp message templates.
+  // Generic falls back when no service slug is provided.
+  whatsappTemplates: {
+    generic: "Hi Deju, I'd like to book an appointment. Could you share availability?",
+    'manicure': "Hi Deju, I'd like to book a Manicure. Could you share availability?",
+    'spa-manicure': "Hi Deju, I'd like to book a Spa Manicure. Could you share availability?",
+    'gel-manicure': "Hi Deju, I'd like to book a Gel Manicure. Could you share availability?",
+    'hard-gel-manicure': "Hi Deju, I'd like to book a Hard Gel Manicure. Could you share availability?",
+    'biab-manicure': "Hi Deju, I'd like to book a BIAB Manicure. Could you share availability?",
+    'soft-tip-gel-x': "Hi Deju, I'd like to book Soft Tip / Gel-X extensions. Could you share availability?",
+    'tip-overlay': "Hi Deju, I'd like to book Tip Overlay extensions. Could you share availability?",
+    'polygel': "Hi Deju, I'd like to book Polygel extensions. Could you share availability?",
+    'sculpture': "Hi Deju, I'd like to book Sculpture extensions. Could you share availability?",
+    'pedicure': "Hi Deju, I'd like to book a Pedicure. Could you share availability?",
+    'spa-pedicure': "Hi Deju, I'd like to book a Spa Pedicure. Could you share availability?",
+    'gel-pedicure': "Hi Deju, I'd like to book a Gel Pedicure. Could you share availability?",
+    'biab-pedicure': "Hi Deju, I'd like to book a BIAB Pedicure. Could you share availability?",
+    'nail-art': "Hi Deju, I'd like to book a Nail Art appointment. Could you share availability?",
+    'press-on-nails': "Hi Deju, I'd like to order custom Press On Nails. Here's the design I have in mind:",
+  },
+
+  analytics: {
+    // Replace with your Google Analytics 4 measurement ID, e.g. 'G-XXXXXXXXXX'.
+    ga4Id: 'G-PLACEHOLDER',
+    // Replace with your Google Ads account, e.g. 'AW-123456789'.
+    googleAdsId: 'AW-PLACEHOLDER',
+    // Replace with the conversion label from Google Ads, e.g. 'AbCdEfGhIjK'.
+    conversionLabel: 'PLACEHOLDER',
+  },
+};

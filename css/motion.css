@@ -1,0 +1,19 @@
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--t-entrance) var(--ease), transform var(--t-entrance) var(--ease);
+}
+[data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+}
+[data-reveal-hero] {
+  transition-duration: var(--t-hero);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
