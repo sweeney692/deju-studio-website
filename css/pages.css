@@ -1,5 +1,13 @@
 /* Home - hero overrides */
-.home-hero { padding-top: 0; padding-bottom: 0; }
+.home-hero { padding-top: 0; padding-bottom: clamp(64px, 9vh, 120px); }
+.home-hero .hero__content {
+  margin-left: 0;
+  margin-right: auto;
+  max-width: 640px;
+  text-align: left;
+}
+.home-hero .hero__actions { justify-content: flex-start; }
+.home-hero h1 { font-size: clamp(36px, 6vw, 66px); }
 
 /* Three pillars - extra space */
 .home-pillars { padding-block: var(--space-9); }
@@ -81,6 +89,7 @@
 }
 @media (max-width: 768px) {
   .philosophy-row { grid-template-columns: 1fr; }
+  .philosophy-row > picture:first-child { order: 2; }
 }
 .philosophy-row img { width: 100%; height: auto; }
 
