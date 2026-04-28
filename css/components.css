@@ -134,10 +134,19 @@
 
 @media (max-width: 768px) {
   .nav-toggle { display: inline-flex; }
+  /* Logo on mobile: drop the desktop 2.5x scale so the header has a
+     predictable layout height and the menu can sit cleanly below it. */
+  .site-header__logo img {
+    transform: none;
+  }
   .site-nav {
     position: fixed;
-    inset: 64px 0 0 0;
-    background: var(--bone-cream);
+    top: 96px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--pure-bone);
+    z-index: 99;
     transform: translateY(-100%);
     transition: transform 400ms var(--ease);
     visibility: hidden;
