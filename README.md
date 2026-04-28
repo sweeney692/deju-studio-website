@@ -54,6 +54,10 @@ WhatsApp CTAs use the `data-wa="<service-slug>"` attribute. They have a baseline
 
 To regenerate gallery images from a new source folder, run `bash scripts/optimize-images.sh` (requires ImageMagick `magick` CLI). Source filenames are listed in the script.
 
+## Mobile menu pitfall
+
+`.site-header` carries `backdrop-filter: blur(12px)` only on desktop. On mobile it's explicitly disabled because `backdrop-filter` (like `transform`/`filter`) makes the element a containing block for `position: fixed` descendants, which traps the `.site-nav` overlay inside the header's box - the menu's solid background fails to paint full-screen and the open menu overlaps the logo. The mobile logo also uses `transform: scale(2)` with `transform-origin: left center` so the layout box (and therefore the header height + the menu's `top: 96px` offset) stays unchanged. See [`css/components.css`](css/components.css) and the comment in the `@media (max-width: 768px)` block.
+
 ## Analytics + conversion notes
 
 - `js/analytics.js` loads the gtag library using the **Ads ID (`AW-...`) as the primary** in the script URL, not the GA4 ID. This is a deliberate workaround: Google's gtag endpoint occasionally returns 404 for newly-created GA4 streams that haven't fully propagated server-side, which would block the entire gtag library from loading and break the Ads conversion as a side effect. The Ads endpoint serves reliably; GA4 is then registered via `gtag('config', ...)` against the loaded library.
@@ -63,7 +67,7 @@ To regenerate gallery images from a new source folder, run `bash scripts/optimiz
 
 ## Open items
 
-- [ ] **Decide what to do with unused `js/config.js` fields** (`address`, `hours`, `mapEmbedSrc`, `mapsUrl`). Either wire them up so config is canonical, or delete them. As of 2026-04-28 all four match the live site so deleting them loses no information.
+- [ ] **Decide what to do with unused `js/config.js` fields** (`address`, `hours`, `mapEmbedSrc`, `mapsUrl`, `whatsappDisplay`, `instagram`, `instagramUrl`, `email`, `googleBusinessUrl`). Only `whatsappNumber`, `whatsappTemplates`, and `analytics` are actually read by the JS today; the rest are duplicated in `index.html`. As of 2026-04-28 all values match the live site so deleting loses no information. Either wire them up so config is canonical, or delete.
 - [ ] **Submit "Deju Studio" for Google Ads business name verification** so ads display the trade name instead of the URL-derived placeholder. ads.google.com -> Tools -> Billing/Setup -> Business name verification.
 - [ ] **Update Google Business Profile hours** at business.google.com to match the site (Sat-Thu by appointment, Friday closed). Important so the location asset on Search ads doesn't conflict with what searchers see in Maps.
 - [ ] (Optional) Add `openingHours` to the `BeautySalon` JSON-LD block in `index.html` for richer structured data.
@@ -75,11 +79,20 @@ Any static-file server works:
 
 ```bash
 python3 -m http.server 5173
-# → http://localhost:5173
+# -> http://localhost:5173
 
 # or
 npx serve .
 ```
+
+To preview on a real phone, bind to all interfaces and connect from the phone over the same Wi-Fi:
+
+```bash
+python3 -m http.server 5173 --bind 0.0.0.0
+# then on the phone: http://<your-laptop-ip>:5173
+```
+
+After deploying, hard-reload to bypass cached CSS/JS. On iOS Safari the easiest path is to long-press the tabs icon -> New Private Tab and visit the live URL there. Private/Incognito tabs always fetch fresh.
 
 ## DNS / hosting
 
