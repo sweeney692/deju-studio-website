@@ -45,7 +45,6 @@ window.DEJU = {
   analytics: {
     ga4Id: 'G-BZ8DVJJCNE',
     googleAdsId: 'AW-11529975683',
-    // Replace with the conversion label from Google Ads, e.g. 'AbCdEfGhIjK'.
-    conversionLabel: 'PLACEHOLDER',
+    conversionLabel: 'tzL7CKzm76McEIPv9fkq',
   },
 };
