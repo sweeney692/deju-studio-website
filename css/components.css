@@ -143,10 +143,11 @@
     -webkit-backdrop-filter: none;
     background: var(--bone-cream);
   }
-  /* Logo on mobile: drop the desktop 2.5x scale so the header has a
-     predictable layout height and the menu can sit cleanly below it. */
+  /* Logo on mobile: scale 2x via transform so the layout box (and
+     therefore the header height + menu top offset) stays unchanged. */
   .site-header__logo img {
-    transform: none;
+    transform: scale(2);
+    transform-origin: left center;
   }
   .site-nav {
     position: fixed;
