@@ -11,7 +11,6 @@ window.DEJU = {
     line2: 'Ubud, Bali 80582',
     country: 'Indonesia',
   },
-  // TODO: confirm exact opening hours from Google Business Profile.
   hours: [
     { days: 'Saturday - Thursday', time: 'By appointment' },
     { days: 'Friday', time: 'Closed' },
