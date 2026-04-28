@@ -11,7 +11,9 @@
   if (!ga4Active && !adsActive) return;
 
   // gtag.js loads off the first id; the rest are configured via gtag('config', ...).
-  const primary = ga4Active ? ga4 : ads;
+  // Prefer the Ads ID: Google's gtag endpoint can 404 for newly-created GA4 streams
+  // that haven't propagated yet, which would block the Ads conversion from loading too.
+  const primary = adsActive ? ads : ga4;
   const s = document.createElement('script');
   s.async = true;
   s.src = `https://www.googletagmanager.com/gtag/js?id=${primary}`;
