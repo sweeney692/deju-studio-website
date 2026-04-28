@@ -43,10 +43,8 @@ window.DEJU = {
   },
 
   analytics: {
-    // Replace with your Google Analytics 4 measurement ID, e.g. 'G-XXXXXXXXXX'.
-    ga4Id: 'G-PLACEHOLDER',
-    // Replace with your Google Ads account, e.g. 'AW-123456789'.
-    googleAdsId: 'AW-PLACEHOLDER',
+    ga4Id: 'G-BZ8DVJJCNE',
+    googleAdsId: 'AW-11529975683',
     // Replace with the conversion label from Google Ads, e.g. 'AbCdEfGhIjK'.
     conversionLabel: 'PLACEHOLDER',
   },
