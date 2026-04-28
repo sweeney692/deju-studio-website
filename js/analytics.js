@@ -1,5 +1,5 @@
 // Loads Google Analytics 4 + Google Ads tags using IDs from config.js.
-// Skips loading if the IDs are still placeholders, so we don't ping a fake property.
+// Skips loading if the IDs are still placeholders.
 (function () {
   const cfg = window.DEJU && window.DEJU.analytics;
   if (!cfg) return;
