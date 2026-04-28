@@ -33,15 +33,13 @@ In rough order of priority. The first three are user-driven (the user makes the 
 
 2. **Update Google Business Profile hours** at business.google.com to match the site (Sat-Thu by appointment, Friday closed). Free, ~2 minutes. Important so the location asset on Search ads doesn't conflict with what searchers see in Maps.
 
-3. **Address inconsistency is still unresolved.** `index.html` says "Jl. Tirta Tawar, Petulu, 80571" (in schema.org JSON-LD, footer, `#visit` section, map iframe, and Maps link). `js/config.js` says "Gn. Abang Street, Lodtunduh, 80582". The user's auto-memory says Lodtunduh. Confirm with the user which is canonical, then update everywhere consistently. **Do not silently pick one.**
+3. **`js/config.js` has dead fields.** `address`, `hours`, `mapEmbedSrc`, `mapsUrl` are defined but no JS reads them - `index.html` hardcodes the values directly. As of 2026-04-28 all four match the live site (the prior Lodtunduh-vs-Petulu inconsistency was resolved when the user confirmed Petulu via Google Maps), so deleting them now would lose no information. Two valid futures: wire them up so config is canonical, or delete. **Ask before removing.**
 
-4. **`js/config.js` has dead fields.** `address`, `mapEmbedSrc`, `mapsUrl` are defined but no JS reads them - the page hardcodes the values directly. The `hours` field is also defined but unused (`index.html` hardcodes hours). Two valid futures: wire them up so config is canonical, or delete them. **Ask before removing.** Note: the `hours` value in config now matches the live site, so deleting won't lose information; the address field disagrees with the site (see point 3) so resolve that first.
+4. **Monitor the live ad campaign.** The campaign entered "Bid strategy learning" on 2026-04-28. Don't make material edits during the 7-10 day learning phase (would reset learning). Safe weekly tasks: prune Search Terms by adding negative keywords, review impression share. Once 15+ conversions accrue, switch bidding from Maximize Clicks to Maximize Conversions. Once 30+, switch to Target CPA. Full monitoring plan at `/Users/conorsweeney/.claude/plans/ok-let-s-plan-this-toasty-cray.md`.
 
-5. **Monitor the live ad campaign.** The campaign entered "Bid strategy learning" on 2026-04-28. Don't make material edits during the 7-10 day learning phase (would reset learning). Safe weekly tasks: prune Search Terms by adding negative keywords, review impression share. Once 15+ conversions accrue, switch bidding from Maximize Clicks to Maximize Conversions. Once 30+, switch to Target CPA. Full monitoring plan at `/Users/conorsweeney/.claude/plans/ok-let-s-plan-this-toasty-cray.md`.
+5. **(Optional) Add `openingHours` to the `BeautySalon` schema.org JSON-LD block** in `index.html`. Currently the site has structured data but no opening-hours field. Would help Google's rich results.
 
-6. **(Optional) Add `openingHours` to the `BeautySalon` schema.org JSON-LD block** in `index.html`. Currently the site has structured data but no opening-hours field. Would help Google's rich results.
-
-7. **(Optional) Replace `assets/logo/logo-cream.png` with an official Bone Cream variant** when one is available.
+6. **(Optional) Replace `assets/logo/logo-cream.png` with an official Bone Cream variant** when one is available.
 
 ## How to resume work
 

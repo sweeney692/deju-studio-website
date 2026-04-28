@@ -63,8 +63,7 @@ To regenerate gallery images from a new source folder, run `bash scripts/optimiz
 
 ## Open items
 
-- [ ] **Address inconsistency**: `index.html` says "Jl. Tirta Tawar, Petulu, 80571"; `js/config.js` says "Gn. Abang Street, Lodtunduh, 80582". Pick the canonical address and update everywhere (schema.org JSON-LD, footer, contact section, map iframe, Open in Maps link, config.js).
-- [ ] **Decide what to do with unused `js/config.js` fields** (`address`, `hours`, `mapEmbedSrc`, `mapsUrl`). Either wire them up so config is canonical, or delete them. The `hours` value matches the live site so deleting it loses no information; the address field disagrees with the site (see point above).
+- [ ] **Decide what to do with unused `js/config.js` fields** (`address`, `hours`, `mapEmbedSrc`, `mapsUrl`). Either wire them up so config is canonical, or delete them. As of 2026-04-28 all four match the live site so deleting them loses no information.
 - [ ] **Submit "Deju Studio" for Google Ads business name verification** so ads display the trade name instead of the URL-derived placeholder. ads.google.com -> Tools -> Billing/Setup -> Business name verification.
 - [ ] **Update Google Business Profile hours** at business.google.com to match the site (Sat-Thu by appointment, Friday closed). Important so the location asset on Search ads doesn't conflict with what searchers see in Maps.
 - [ ] (Optional) Add `openingHours` to the `BeautySalon` JSON-LD block in `index.html` for richer structured data.

@@ -7,17 +7,16 @@ window.DEJU = {
   instagramUrl: 'https://instagram.com/dejustudio',
   email: 'contact.desty@gmail.com',
   address: {
-    line1: 'Gn. Abang Street, Lodtunduh',
-    line2: 'Ubud, Bali 80582',
+    line1: 'Jl. Tirta Tawar, Petulu',
+    line2: 'Ubud, Bali 80571',
     country: 'Indonesia',
   },
   hours: [
     { days: 'Saturday - Thursday', time: 'By appointment' },
     { days: 'Friday', time: 'Closed' },
   ],
-  // TODO: replace with the precise embed URL from Google Maps -> Share -> Embed a map.
-  mapEmbedSrc: 'https://www.google.com/maps?q=Gn.+Abang+Street+Lodtunduh+Ubud+Bali+80582&output=embed',
-  mapsUrl: 'https://maps.google.com/?q=Gn.+Abang+Street+Lodtunduh+Ubud+Bali+80582',
+  mapEmbedSrc: 'https://www.google.com/maps?q=DEJU+STUDIO+Jl.+Tirta+Tawar+Petulu+Ubud+Bali+80571&output=embed',
+  mapsUrl: 'https://maps.google.com/?q=DEJU+STUDIO+Jl.+Tirta+Tawar+Petulu+Ubud+Bali+80571',
   googleBusinessUrl: 'https://share.google/qd7wFZgxsEgsR4bjJ',
 
   // Pre-filled WhatsApp message templates.
