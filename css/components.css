@@ -134,6 +134,15 @@
 
 @media (max-width: 768px) {
   .nav-toggle { display: inline-flex; }
+  /* backdrop-filter on the header makes it a containing block for fixed
+     descendants, which traps the mobile menu inside the header's box -
+     the bg only paints within that small box and the menu overlays the
+     logo. Disable it on mobile so .site-nav fixes to the viewport. */
+  .site-header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bone-cream);
+  }
   /* Logo on mobile: drop the desktop 2.5x scale so the header has a
      predictable layout height and the menu can sit cleanly below it. */
   .site-header__logo img {
