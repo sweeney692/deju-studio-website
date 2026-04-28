@@ -13,8 +13,8 @@ window.DEJU = {
   },
   // TODO: confirm exact opening hours from Google Business Profile.
   hours: [
-    { days: 'Monday - Saturday', time: 'By appointment' },
-    { days: 'Sunday', time: 'Closed' },
+    { days: 'Saturday - Thursday', time: 'By appointment' },
+    { days: 'Friday', time: 'Closed' },
   ],
   // TODO: replace with the precise embed URL from Google Maps -> Share -> Embed a map.
   mapEmbedSrc: 'https://www.google.com/maps?q=Gn.+Abang+Street+Lodtunduh+Ubud+Bali+80582&output=embed',
