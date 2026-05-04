@@ -45,4 +45,11 @@ window.DEJU = {
     googleAdsId: 'AW-11529975683',
     conversionLabel: 'tzL7CKzm76McEIPv9fkq',
   },
+
+  // Partners with referral attribution. Map ?ref=<slug> -> display name.
+  // The display name is appended to WhatsApp messages so the studio can see
+  // which partner the inquiry came from and pay commission accordingly.
+  partnerNames: {
+    'padma-warung': 'Padma Warung',
+  },
 };

@@ -17,5 +17,9 @@ Desty - Portofolio .pdf
 Deju-Studio-Developer-Guide.html
 Deju-Studio-Developer-Guide.md
 
+# Exported point-of-sale materials (PDFs distributed to partners). Sources
+# live in tabletent/<slug>.html; the PDF is a derived artefact.
+POS Materials/
+
 # Plan + memory (live outside repo)
 .claude/
