@@ -38,11 +38,19 @@ Marketing website for [Deju Studio](https://www.dejustudio.com), an ultra-premiu
 │   ├── img/                    Web-optimised gallery photos (1600w JPG + WebP pairs)
 │   └── logo/                   Forest + Cream logo variants
 ├── scripts/optimize-images.sh  Regenerates assets/img/ from the source folder
+├── tabletent/                  Print artwork for partner-restaurant table tents (one HTML per partner)
+├── Summaries/                  Session-by-session change summaries (human-readable history)
 ├── netlify.toml                Publish + redirects (legacy /about.html → /#about etc) + cache headers
 ├── robots.txt, sitemap.xml
 ├── README.md                   This file
 └── CLAUDE.md                   Project context for AI assistants - read this for the full picture
 ```
+
+Outside the repo (gitignored, lives only on this machine):
+
+- `POS Materials/` - exported print-ready PDFs distributed to partners.
+- `Image Gallery/`, `Pricing/`, `Reviews/` - raw source assets.
+- `Logo.PNG`, `Logo Transparent Background.PNG`, `Deju-Studio-Developer-Guide.*`, `Desty - Portofolio .pdf` - originals.
 
 ## Editing site-wide details
 
@@ -53,6 +61,19 @@ To update copy or prices, edit [`index.html`](index.html) directly. The price li
 WhatsApp CTAs use the `data-wa="<service-slug>"` attribute. They have a baseline `href="https://wa.me/6282340889808"` directly in the HTML as a no-JS fallback; `js/whatsapp.js` upgrades the href at load time with the per-service templated message and fires the Google Ads conversion event on click. Don't strip the baseline href.
 
 To regenerate gallery images from a new source folder, run `bash scripts/optimize-images.sh` (requires ImageMagick `magick` CLI). Source filenames are listed in the script.
+
+## Partner-attribution table tents
+
+Partner restaurants in Ubud host printed table tents with a QR code that points at `dejustudio.com/?ref=<slug>`. When a diner scans the QR and taps any WhatsApp CTA on the resulting page, the pre-filled message uses the generic booking template plus a `(Sent from <Partner>)` suffix - so the studio sees a single recognisable opener in WhatsApp and can pay commission per inquiry.
+
+How it works:
+
+- `js/config.js` -> `partnerNames` maps `ref` slugs to display names.
+- `js/whatsapp.js` reads `?ref=<slug>` on landing, persists it to `sessionStorage.dejuRef`, then on every `[data-wa]` CTA click overrides the per-service template with the generic one and appends ` (Sent from <Partner>)`.
+- The QR also carries `utm_source=<slug>&utm_medium=qr&utm_campaign=tabletent` so GA4 captures the same traffic in Acquisition reports.
+- Non-partner visitors keep the per-service templates unchanged.
+
+Print artwork lives in [`tabletent/`](tabletent/), one HTML file per partner. Logo + QR codes are inlined as `data:` URIs so the file renders standalone (works under `file://` and outside the repo). Exported print-ready PDFs live in `POS Materials/` (gitignored). See [`tabletent/README.md`](tabletent/README.md) for the full step-by-step on adding a partner, generating the QR, exporting the PDF, and the spec sheet to send to the print shop.
 
 ## Mobile menu pitfall
 
