@@ -144,3 +144,59 @@ After the push lands on Netlify:
 - [ ] Run https://securityheaders.com on the live URL - expect grade A or A+.
 - [ ] Curl https://www.dejustudio.com/llms.txt and https://www.dejustudio.com/llms-full.txt - both should return 200 with Markdown.
 - [ ] Lighthouse mobile audit - LCP < 2.5s, SEO 100, Best Practices 100.
+
+---
+
+## Follow-up 2026-05-14 (later same day) - GSC, Bing, domain flip
+
+A second wave of work done after the main SEO/GEO push landed.
+
+### Netlify - canonical domain flipped from apex to www
+
+The site was Netlify-side configured with `dejustudio.com` (apex) as the primary domain, but the codebase's `<link rel="canonical">` and all schema URLs pointed at `https://www.dejustudio.com/`. That mismatch caused a 1-redirect-hop canonical-via-redirect situation - mild SEO suboptimality. Flipped Netlify's `custom_domain` to `www.dejustudio.com` and added `dejustudio.com` to `domain_aliases`. Done via:
+
+```
+netlify api updateSite --data '{"site_id":"8ff708dc-55db-4452-b5ba-16076b9d3320","body":{"custom_domain":"www.dejustudio.com","domain_aliases":["dejustudio.com"]}}'
+```
+
+Now `https://www.dejustudio.com/` resolves directly (0 redirects), `https://dejustudio.com/` 301-redirects to www, and the canonical chain matches everywhere. No code change required.
+
+### Google Search Console + Bing Webmaster Tools - verified, sitemap submitted
+
+The path to verification went through one false start that's worth recording for next time:
+
+**GA4 auto-verification fails on this site.** GSC's static HTML parser looks for a GA4 tracking ID in the source HTML, but `js/analytics.js` deliberately loads gtag with the Ads ID (`AW-11529975683`) in the script URL, not the GA4 ID - per the existing workaround that prevents Ads conversion outage if Google's GA4 endpoint 404s. The GA4 `gtag('config', 'G-BZ8DVJJCNE')` call lives inside the loaded JS file, not as inline HTML, so GSC's parser can't see it.
+
+**Fix: HTML meta tag verification.** Added `<meta name="google-site-verification" content="of5QbFUejZV0uCoOjr3Odm4mjQTCdao2cA5JEiNWQIU">` to `<head>` of `index.html`. Pushed, deployed, GSC verified instantly. Then `sitemap.xml` submitted via GSC -> Sitemaps panel.
+
+**Bing imported from GSC.** Bing Webmaster Tools has a one-click "Import from Google Search Console" flow that brings over the property + sitemap. Done.
+
+### CLAUDE.md updates
+
+- Architecture conventions: added notes on the canonical domain flip + the GSC meta tag (so future-me doesn't waste time on GA4 auto-verify).
+- Things to avoid: added two new rules - don't remove the google-site-verification meta tag, and don't flip canonical back to apex without also rewriting all the `https://www.dejustudio.com/...` URLs in schema, OG, sitemap, llms.txt.
+
+### What's now genuinely done
+
+- Schema layer + AI corpus files: deployed, valid, GSC-discoverable.
+- Editorial refresh: live and verified visually.
+- Hours change: live everywhere (schema, visible HTML, footer, llms files, docs).
+- Domain canonical: clean, no redirect hop.
+- GSC + Bing: verified, sitemap submitted, awaiting first crawl reports.
+- Desty FAQ review: incorporated, schema + visible HTML still byte-identical.
+- GBP: updated.
+
+### Remaining open items (still on the user's plate)
+
+- Build local citations (Apple Business Connect, TripAdvisor, Honeycombers Bali, etc.) - identical NAP everywhere.
+- Submit Deju Studio for Google Ads business name verification (3-21 days).
+- Update Google Ads ad-schedule to Mon-Sat once the campaign exits bid-strategy learning.
+- Print + deliver Padma Warung tabletent.
+- Monitor GBP - keep collecting reviews. Once GBP hits 25+ reviews, ask the engineer to add a hand-curated `aggregateRating` block to the BeautySalon schema.
+- Monitor Search Console weekly for rich-results impressions (expect first results 2-4 weeks post-submit).
+
+### Remaining open items (in the codebase, smaller scope)
+
+- Generate full favicon + manifest + apple-touch-icon set via realfavicongenerator.net and wire up the `<link>` tags.
+- Decide whether to wire `js/config.js` dead fields into HTML or delete them (CLAUDE.md says ask before removing).
+- Stale CSS classes from the multi-page collapse - dedicated cleanup PR worth doing some day.

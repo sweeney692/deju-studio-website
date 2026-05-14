@@ -4,10 +4,11 @@ Marketing website for [Deju Studio](https://www.dejustudio.com), an ultra-premiu
 
 ## Live
 
-- Production: https://www.dejustudio.com (and https://dejustudio.com)
-- Netlify project: `dejustudio` (auto-deploys from `main`)
+- Production: https://www.dejustudio.com (canonical). The apex `https://dejustudio.com` 301-redirects to www.
+- Netlify project: `dejustudio` (auto-deploys from `main`). Primary domain flipped from apex to www on 2026-05-14.
 - Analytics: GA4 `G-BZ8DVJJCNE` + Google Ads `AW-11529975683` (conversion label `tzL7CKzm76McEIPv9fkq`). All firing as of 2026-04-28.
-- Live Google Ads Search campaign: "Deju Studio - Search - Ubud Tourists", 75k IDR/day, English, presence-based Ubud + 10km radius, Sat-Thu schedule.
+- Live Google Ads Search campaign: "Deju Studio - Search - Ubud Tourists", 75k IDR/day, English, presence-based Ubud + 10km radius, Sat-Thu schedule (will be updated to Mon-Sat once the campaign exits bid-strategy learning).
+- Google Search Console + Bing Webmaster Tools verified, sitemap submitted (2026-05-14).
 
 ## Stack
 
@@ -95,12 +96,13 @@ Print artwork lives in [`tabletent/`](tabletent/), one HTML file per partner. Lo
 
 ### Outside the codebase (user-driven)
 
-- [ ] **Update Google Business Profile** at business.google.com: hours (Mon-Sat / Sunday closed), photos (20+), services menu with prices, Q&A seed, review collection ritual.
-- [ ] **Submit `sitemap.xml`** in Google Search Console + Bing Webmaster Tools, then verify domain ownership in both.
+- [x] **Google Business Profile** updated 2026-05-14 (hours / address / services / Q&A / verification). Ongoing: review collection ritual (target 5+/month) and periodic photo refresh.
+- [x] **Search Console + Bing Webmaster Tools verified, sitemap submitted** (2026-05-14). Verification via `<meta name="google-site-verification">` in `<head>`. Bing imported the property from Google Search Console.
+- [x] **Desty FAQ review** complete - 4 flagged answers (deposit, cancellation, hygiene, product brands) all updated to current studio policy.
 - [ ] **Build local citations** (NAP consistency) on Apple Business Connect, TripAdvisor, Honeycombers Bali, Ubud Now & Then, The Bali Bible, NOW! Bali, Fresha or Booksy, Foursquare.
 - [ ] **Submit "Deju Studio" for Google Ads business name verification** so ads display the trade name instead of the URL-derived placeholder. ads.google.com -> Tools -> Billing/Setup -> Business name verification.
 - [ ] **Update Google Ads ad-schedule** to match Mon-Sat opening (was Sat-Thu). Hold until the campaign exits its bid-strategy learning phase to avoid resetting learning.
-- [ ] **Desty review of 4 FAQ answers** drafted with defaults: deposit policy, cancellation policy, hygiene/sterilisation specifics, product brand specifics. See [`Summaries/2026-05-14-seo-geo-launch.md`](Summaries/2026-05-14-seo-geo-launch.md).
+- [ ] **Monitor Search Console** weekly - first rich-results impressions typically appear 2-4 weeks post-submit. Check Performance + Enhancements (BeautySalon / FAQ / Person) panels.
 
 ### In the codebase (smaller scope)
 
