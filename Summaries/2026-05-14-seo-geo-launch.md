@@ -200,3 +200,48 @@ The path to verification went through one false start that's worth recording for
 - Generate full favicon + manifest + apple-touch-icon set via realfavicongenerator.net and wire up the `<link>` tags.
 - Decide whether to wire `js/config.js` dead fields into HTML or delete them (CLAUDE.md says ask before removing).
 - Stale CSS classes from the multi-page collapse - dedicated cleanup PR worth doing some day.
+
+---
+
+## Follow-up 2026-05-14 (third wave, same day) - aggregateRating + tabletents delivered
+
+### aggregateRating added to BeautySalon schema
+
+GBP turned out to already carry **149 five-star Google reviews** - well above the 25 threshold the plan called for before adding `aggregateRating`. Added the schema block:
+
+```json
+"aggregateRating": {
+  "@type": "AggregateRating",
+  "ratingValue": "5.0",
+  "bestRating": "5",
+  "worstRating": "1",
+  "reviewCount": "149"
+}
+```
+
+Sits inside the existing `BeautySalon` JSON-LD block in `<head>` of `index.html`, between `paymentAccepted` and `address`. Verified live on prod (deploy `6a057d9b`, commit `e47dac7`).
+
+**What this unlocks:** Google can now display the star-rating snippet in standard SERPs once it recrawls (typically 1-7 days). That's several extra pixels of vertical real estate per result + a measurable CTR uplift. The 5.0/149 figure also becomes a structured citable answer for AI assistants ("What's the rating of Deju Studio?").
+
+**Maintenance reminder.** When `reviewCount` increments by ~25, bump the integer in the BeautySalon JSON-LD block (it's at line ~75 of `index.html`). Don't fabricate - Google may cross-check via GBP and demote if numbers diverge.
+
+### Padma Warung tabletents delivered
+
+Print + delivery confirmed by user 2026-05-14. The partner-attribution flow goes from "implemented" to "in market" - WhatsApp inquiries from QR scans will now arrive carrying ` (Sent from Padma Warung)` and the studio can start commission reconciliation. GA4 will report the same traffic under `source = padma-warung`.
+
+**CLAUDE.md + README.md updated** to reflect both: aggregateRating live, tabletents delivered. Technical TODO list renumbered (the old `Add aggregateRating` item dropped, leaving 12 items in "Where to pick up next").
+
+### Final open list (after this third wave)
+
+User-driven:
+- Local citations (TripAdvisor, Honeycombers, Apple Business Connect, etc.)
+- Google Ads business name verification (3-21 days)
+- Update Google Ads ad-schedule to Mon-Sat once campaign exits bid-strategy learning
+- Track Padma Warung commission against bookings (now ongoing)
+- Monitor GBP - keep collecting reviews; bump `reviewCount` when ~25 new ones arrive
+- Monitor Search Console weekly
+
+Codebase (small):
+- Favicon + manifest + apple-touch-icon set
+- Decide on `js/config.js` dead fields (wire or delete)
+- Stale CSS classes from the multi-page collapse
