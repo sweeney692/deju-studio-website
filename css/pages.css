@@ -71,6 +71,36 @@
 }
 .philosophy-row img { width: 100%; height: auto; }
 
+/* Merged About: Philosophy + Specialisations stacked in one text column */
+#about .philosophy-row picture {
+  display: block;
+  overflow: hidden;
+  border-radius: 42% 58% 48% 52% / 55% 45% 55% 45%;
+  box-shadow: 0 24px 48px rgba(20, 30, 25, 0.35);
+}
+#about .philosophy-row img {
+  display: block;
+  border-radius: inherit;
+}
+
+/* Artist section portrait gets its own organic shape (distinct from About) */
+#artist .philosophy-row picture {
+  display: block;
+  overflow: hidden;
+  border-radius: 58% 42% 38% 62% / 48% 60% 40% 52%;
+  box-shadow: 0 24px 48px rgba(20, 30, 25, 0.35);
+}
+#artist .philosophy-row img {
+  display: block;
+  border-radius: inherit;
+}
+.about__eyebrow-second { margin-top: var(--space-6); }
+.about__subhead {
+  font-size: clamp(24px, 2.5vw, 32px);
+  margin: 0 0 var(--space-4);
+}
+.about__cta-btn { margin-top: var(--space-6); display: inline-flex; }
+
 /* Contact page */
 .contact-grid {
   display: grid;
@@ -84,6 +114,11 @@
 .contact-info dl {
   display: grid;
   grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+.map-column {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-5);
 }
 .contact-info dt {

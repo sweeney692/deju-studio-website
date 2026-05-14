@@ -310,40 +310,8 @@
 }
 .pillar h4 { color: var(--deju-forest); margin-bottom: var(--space-3); }
 
-/* Gallery */
-.gallery-grid {
-  column-count: 3;
-  column-gap: var(--space-4);
-}
-@media (max-width: 1024px) { .gallery-grid { column-count: 2; } }
-@media (max-width: 600px)  { .gallery-grid { column-count: 1; } }
-.gallery-item {
-  break-inside: avoid;
-  margin-bottom: var(--space-4);
-  display: block;
-  position: relative;
-  overflow: hidden;
-  background: var(--pure-bone);
-}
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  transition: transform 600ms var(--ease);
-}
-.gallery-item:hover img { transform: scale(1.03); }
-.gallery-item__caption {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: var(--space-5);
-  color: var(--bone-cream);
-  background: linear-gradient(180deg, rgba(26,26,26,0) 0%, rgba(26,26,26,0.7) 100%);
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  opacity: 0;
-  transition: opacity var(--t-hover) var(--ease);
-}
-.gallery-item:hover .gallery-item__caption,
-.gallery-item:focus-visible .gallery-item__caption { opacity: 1; }
+/* Gallery base class - retained so js/gallery.js continues to find items via .gallery-item.
+   Layout/visual is owned by .gallery-scatter / .gallery-scatter__item further down. */
 
 .filter-bar {
   position: sticky;
@@ -603,35 +571,107 @@
   }
 }
 
-/* Gallery collage - asymmetric grid, 10 images */
-.gallery-collage {
+/* Gallery scatter - uniform square tiles arranged with subtle stagger + rotation */
+.gallery-scatter {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 220px;
-  gap: var(--space-3);
+  gap: var(--space-5);
+  padding-block: var(--space-4);
 }
-.gallery-collage__item {
+.gallery-scatter__item {
   position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--pure-bone);
-  display: block;
+  box-shadow: 0 18px 36px rgba(20, 30, 25, 0.32);
+  transition: transform 500ms var(--ease), box-shadow 500ms var(--ease);
+  will-change: transform;
 }
-.gallery-collage__item picture,
-.gallery-collage__item img { width: 100%; height: 100%; }
-.gallery-collage__item img {
+.gallery-scatter__item:hover {
+  box-shadow: 0 28px 56px rgba(20, 30, 25, 0.40);
+}
+.gallery-scatter__item picture,
+.gallery-scatter__item img {
+  width: 100%;
+  height: 100%;
+}
+.gallery-scatter__item picture { display: block; border-radius: inherit; }
+.gallery-scatter__item img {
   object-fit: cover;
   transition: transform 600ms var(--ease);
+  border-radius: inherit;
 }
-.gallery-collage__item:hover img { transform: scale(1.04); }
-.gallery-collage__item--tall { grid-row: span 2; }
-.gallery-collage__item--wide { grid-column: span 2; }
-@media (max-width: 1024px) {
-  .gallery-collage { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 200px; }
+
+/* Per-tile organic blob shapes - each unique, none identical to #about or #artist */
+.gallery-scatter > a.gallery-scatter__item:nth-of-type(1)  { border-radius: 38% 62% 55% 45% / 50% 45% 55% 50%; }
+.gallery-scatter > a.gallery-scatter__item:nth-of-type(2)  { border-radius: 60% 40% 45% 55% / 52% 58% 42% 48%; }
+.gallery-scatter > a.gallery-scatter__item:nth-of-type(3)  { border-radius: 45% 55% 60% 40% / 60% 45% 55% 40%; }
+.gallery-scatter > a.gallery-scatter__item:nth-of-type(4)  { border-radius: 55% 45% 35% 65% / 45% 55% 50% 50%; }
+.gallery-scatter > a.gallery-scatter__item:nth-of-type(5)  { border-radius: 42% 58% 52% 48% / 58% 42% 60% 40%; }
+.gallery-scatter > a.gallery-scatter__item:nth-of-type(6)  { border-radius: 62% 38% 40% 60% / 40% 60% 50% 50%; }
+.gallery-scatter > a.gallery-scatter__item:nth-of-type(7)  { border-radius: 50% 50% 60% 40% / 55% 40% 60% 45%; }
+.gallery-scatter > a.gallery-scatter__item:nth-of-type(8)  { border-radius: 48% 52% 45% 55% / 50% 55% 45% 50%; }
+.gallery-scatter > a.gallery-scatter__item:nth-of-type(9)  { border-radius: 58% 42% 48% 52% / 42% 58% 52% 48%; }
+.gallery-scatter > a.gallery-scatter__item:nth-of-type(10) { border-radius: 40% 60% 55% 45% / 55% 50% 45% 50%; }
+.gallery-scatter__item:hover {
+  transform: translateY(-4px) rotate(0deg) !important;
+  z-index: 2;
+}
+.gallery-scatter__item:hover img { transform: scale(1.04); }
+
+/* Subtle scatter: per-tile translate + rotation. Desktop only.
+   :nth-of-type(a) counts only anchor children, so the CTA div doesn't shift the indexing. */
+@media (min-width: 701px) {
+  .gallery-scatter > a.gallery-scatter__item:nth-of-type(1)  { transform: translateY(0)     rotate(-1.5deg); }
+  .gallery-scatter > a.gallery-scatter__item:nth-of-type(2)  { transform: translateY(24px)  rotate(1deg); }
+  .gallery-scatter > a.gallery-scatter__item:nth-of-type(3)  { transform: translateY(-12px) rotate(-0.5deg); }
+  .gallery-scatter > a.gallery-scatter__item:nth-of-type(4)  { transform: translateY(36px)  rotate(2deg); }
+  .gallery-scatter > a.gallery-scatter__item:nth-of-type(5)  { transform: translateY(12px)  rotate(-2deg); }
+  .gallery-scatter > a.gallery-scatter__item:nth-of-type(6)  { transform: translateY(28px)  rotate(-1deg); }
+  .gallery-scatter > a.gallery-scatter__item:nth-of-type(7)  { transform: translateY(8px)   rotate(2deg); }
+  .gallery-scatter > a.gallery-scatter__item:nth-of-type(8)  { transform: translateY(-16px) rotate(-1.5deg); }
+  .gallery-scatter > a.gallery-scatter__item:nth-of-type(9)  { transform: translateY(-20px) rotate(1.5deg); }
+  .gallery-scatter > a.gallery-scatter__item:nth-of-type(10) { transform: translateY(20px)  rotate(1deg); }
+}
+
+/* CTA tile - spans 2 columns in the centre, holds the WhatsApp button */
+.gallery-scatter__cta {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 2 / 1;
+}
+/* Enlarged button size, scoped to the gallery CTA only (~1.5x default) */
+.gallery-scatter__cta .btn-primary {
+  min-height: 72px;
+  padding: var(--space-4) var(--space-6);
+  font-size: 22px;
+  gap: var(--space-3);
+  letter-spacing: 0.015em;
 }
 @media (max-width: 700px) {
-  .gallery-collage { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; gap: var(--space-2); }
-  .gallery-collage__item--wide { grid-column: span 2; }
-  .gallery-collage__item--tall { grid-row: span 2; }
+  .gallery-scatter__cta {
+    grid-column: span 2;
+    aspect-ratio: auto;
+    padding-block: var(--space-5);
+  }
+  /* On mobile, ease back so the button doesn't overflow the column */
+  .gallery-scatter__cta .btn-primary {
+    min-height: 56px;
+    padding: var(--space-3) var(--space-5);
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .gallery-scatter { grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+}
+@media (max-width: 700px) {
+  .gallery-scatter { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); padding-block: 0; }
+  /* Drop the rotation/translate on mobile - chaotic at small sizes */
+  .gallery-scatter__item { transform: none !important; }
 }
 
 /* Review cards */
@@ -701,4 +741,120 @@
   color: var(--brass);
   font-family: var(--font-display);
   font-weight: 500;
+}
+
+/* FAQ accordion */
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.faq-item {
+  border-bottom: 1px solid var(--whisper);
+}
+.faq-item:first-child {
+  border-top: 1px solid var(--whisper);
+}
+.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: var(--space-5) 0;
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 500;
+  color: var(--deju-forest);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  transition: color 0.2s ease;
+}
+.faq-item > summary:hover {
+  color: var(--rich-onyx);
+}
+.faq-item > summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item > summary::after {
+  content: "+";
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1;
+  color: var(--brass);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.faq-item[open] > summary::after {
+  transform: rotate(45deg);
+}
+.faq-item > summary:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 4px;
+}
+.faq-item__body {
+  padding: 0 0 var(--space-5) 0;
+  max-width: 640px;
+}
+.faq-item__body p {
+  margin: 0;
+  color: var(--rich-onyx);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Artist (about the founder) section */
+.artist__body .eyebrow {
+  margin-bottom: var(--space-3);
+}
+.artist__body h2 {
+  margin: 0 0 var(--space-5);
+}
+.artist__body p {
+  margin: 0 0 var(--space-4);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--rich-onyx);
+}
+.artist__body p:last-child {
+  margin-bottom: 0;
+}
+.artist__body strong {
+  font-weight: 600;
+  color: var(--deju-forest);
+}
+.artist__credentials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-7) auto 0;
+  padding: var(--space-5) 0 0;
+  list-style: none;
+  border-top: 1px solid var(--whisper);
+  max-width: 720px;
+}
+.artist__credentials li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+.artist__credentials strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--deju-forest);
+  font-size: clamp(20px, 2.2vw, 24px);
+  line-height: 1.1;
+}
+.artist__credentials span {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brass);
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .artist__credentials {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    text-align: center;
+  }
 }

@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.dejustudio.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.dejustudio.com/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.dejustudio.com/assets/img/hero-deju.jpg</image:loc>
+      <image:caption>Polka-dot manicure with hand-painted three-dimensional florals at Deju Studio Ubud</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dejustudio.com/assets/img/hero-sea-creatures.jpg</image:loc>
+      <image:caption>Long navy almond nails with hand-painted sea-creature accents</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dejustudio.com/assets/img/art-3d-flowers.jpg</image:loc>
+      <image:caption>French manicure with three-dimensional white florals</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dejustudio.com/assets/img/manicure-pink-chrome.jpg</image:loc>
+      <image:caption>Pearl pink chrome manicure</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dejustudio.com/assets/img/art-3d-pearl.jpg</image:loc>
+      <image:caption>Pearl manicure with snake and floral motifs</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dejustudio.com/assets/img/ext-square-chrome.jpg</image:loc>
+      <image:caption>Square chrome extensions with three-dimensional silver flowers</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dejustudio.com/assets/img/hero-black-chrome.jpg</image:loc>
+      <image:caption>Black chrome almond extensions</image:caption>
+    </image:image>
+  </url>
 </urlset>

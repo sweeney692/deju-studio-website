@@ -12,8 +12,8 @@ window.DEJU = {
     country: 'Indonesia',
   },
   hours: [
-    { days: 'Saturday - Thursday', time: 'By appointment' },
-    { days: 'Friday', time: 'Closed' },
+    { days: 'Monday - Saturday', time: 'By appointment' },
+    { days: 'Sunday', time: 'Closed' },
   ],
   mapEmbedSrc: 'https://www.google.com/maps?q=DEJU+STUDIO+Jl.+Tirta+Tawar+Petulu+Ubud+Bali+80571&output=embed',
   mapsUrl: 'https://maps.google.com/?q=DEJU+STUDIO+Jl.+Tirta+Tawar+Petulu+Ubud+Bali+80571',

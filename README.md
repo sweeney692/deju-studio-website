@@ -12,26 +12,28 @@ Marketing website for [Deju Studio](https://www.dejustudio.com), an ultra-premiu
 ## Stack
 
 - Hand-written HTML5, vanilla CSS, vanilla JS. No framework, no build step.
-- Single-page editorial layout. All sections live in [`index.html`](index.html); the nav uses in-page anchors (`#about`, `#services`, `#gallery`, `#visit`).
+- Single-page editorial layout. All sections live in [`index.html`](index.html). Section anchors: `#about` (Philosophy + Specialisations + Book CTA), `#artist` (Meet Desty), `#services` (price carousel), `#gallery` (scattered grid with centre Book CTA), `#visit` (contact + map), `#reviews`, `#faq` (22-question accordion), `#book` (closing CTA).
 - Hosted on Netlify, deployed automatically on push to `main`.
+- **SEO + GEO foundation** is live: 4 JSON-LD blocks (BeautySalon, Person, OfferCatalog, FAQPage), `/llms.txt` + `/llms-full.txt` for AI crawlers, robots.txt with explicit AI bot allow-list, image sitemap, CSP + HSTS headers. Full strategy: `Deju-Online-Presence-Brief.md` (gitignored).
 
 ## File map
 
 ```
 /
-├── index.html                  Single-page site (hero, about, services, gallery, visit, reviews, CTA)
+├── index.html                  Single-page site - hero, about, artist, services, gallery, visit, reviews, faq, book
+│                               Contains 4 JSON-LD schema blocks (BeautySalon, Person, OfferCatalog, FAQPage)
 ├── css/
 │   ├── reset.css, tokens.css   CSS reset + design tokens (colours, type, spacing)
 │   ├── base.css                Typography, container, base elements
-│   ├── components.css          Buttons, nav, hero, gallery, services carousel, footer, lightbox
-│   ├── pages.css               Page-specific composition rules
+│   ├── components.css          Buttons, nav, hero, services carousel, gallery scatter, FAQ accordion, footer, lightbox
+│   ├── pages.css               Page-specific composition rules (philosophy rows, artist section, contact grid, image shapes)
 │   └── motion.css              Reveal animations
 ├── js/
 │   ├── config.js               Single source of truth (WhatsApp number, message templates, analytics IDs)
 │   ├── whatsapp.js             Wires every [data-wa] CTA to a pre-filled wa.me link, fires Ads conversion on click
 │   ├── analytics.js            GA4 + Google Ads loader (loads gtag using Ads ID as primary, see notes below)
 │   ├── nav.js                  Mobile nav toggle
-│   ├── gallery.js              Lightbox for the gallery collage
+│   ├── gallery.js              Lightbox for the gallery
 │   ├── carousel.js             Services price-list carousel (with dots + arrows)
 │   └── reveal.js               IntersectionObserver-driven reveal-on-scroll
 ├── assets/
@@ -39,9 +41,12 @@ Marketing website for [Deju Studio](https://www.dejustudio.com), an ultra-premiu
 │   └── logo/                   Forest + Cream logo variants
 ├── scripts/optimize-images.sh  Regenerates assets/img/ from the source folder
 ├── tabletent/                  Print artwork for partner-restaurant table tents (one HTML per partner)
-├── Summaries/                  Session-by-session change summaries (human-readable history)
-├── netlify.toml                Publish + redirects (legacy /about.html → /#about etc) + cache headers
-├── robots.txt, sitemap.xml
+├── Summaries/                  Session-by-session change summaries (human-readable history, tracked)
+├── netlify.toml                Publish + redirects (legacy /about.html → /#about etc) + cache + CSP/HSTS headers
+├── robots.txt                  Explicit allow-list for 18 AI/search crawlers (GPTBot, ClaudeBot, etc.)
+├── sitemap.xml                 With image sitemap + lastmod
+├── llms.txt                    AI-crawler navigation file (Jeremy Howard's emerging standard)
+├── llms-full.txt               AI-crawler corpus - full Markdown content (services, FAQ, reviews, etc.)
 ├── README.md                   This file
 └── CLAUDE.md                   Project context for AI assistants - read this for the full picture
 ```
@@ -88,10 +93,21 @@ Print artwork lives in [`tabletent/`](tabletent/), one HTML file per partner. Lo
 
 ## Open items
 
-- [ ] **Decide what to do with unused `js/config.js` fields** (`address`, `hours`, `mapEmbedSrc`, `mapsUrl`, `whatsappDisplay`, `instagram`, `instagramUrl`, `email`, `googleBusinessUrl`). Only `whatsappNumber`, `whatsappTemplates`, and `analytics` are actually read by the JS today; the rest are duplicated in `index.html`. As of 2026-04-28 all values match the live site so deleting loses no information. Either wire them up so config is canonical, or delete.
+### Outside the codebase (user-driven)
+
+- [ ] **Update Google Business Profile** at business.google.com: hours (Mon-Sat / Sunday closed), photos (20+), services menu with prices, Q&A seed, review collection ritual.
+- [ ] **Submit `sitemap.xml`** in Google Search Console + Bing Webmaster Tools, then verify domain ownership in both.
+- [ ] **Build local citations** (NAP consistency) on Apple Business Connect, TripAdvisor, Honeycombers Bali, Ubud Now & Then, The Bali Bible, NOW! Bali, Fresha or Booksy, Foursquare.
 - [ ] **Submit "Deju Studio" for Google Ads business name verification** so ads display the trade name instead of the URL-derived placeholder. ads.google.com -> Tools -> Billing/Setup -> Business name verification.
-- [ ] **Update Google Business Profile hours** at business.google.com to match the site (Sat-Thu by appointment, Friday closed). Important so the location asset on Search ads doesn't conflict with what searchers see in Maps.
-- [ ] (Optional) Add `openingHours` to the `BeautySalon` JSON-LD block in `index.html` for richer structured data.
+- [ ] **Update Google Ads ad-schedule** to match Mon-Sat opening (was Sat-Thu). Hold until the campaign exits its bid-strategy learning phase to avoid resetting learning.
+- [ ] **Desty review of 4 FAQ answers** drafted with defaults: deposit policy, cancellation policy, hygiene/sterilisation specifics, product brand specifics. See [`Summaries/2026-05-14-seo-geo-launch.md`](Summaries/2026-05-14-seo-geo-launch.md).
+
+### In the codebase (smaller scope)
+
+- [ ] **Favicon + manifest + apple-touch-icon set.** Generate via realfavicongenerator.net and wire up the `<link>` tags in `<head>`. Plus `manifest.json` at repo root.
+- [ ] **Add `aggregateRating` to BeautySalon schema** once GBP has 25+ reviews. Hand-curated. Don't fabricate.
+- [ ] **Decide what to do with unused `js/config.js` fields** (`address`, `hours`, `mapEmbedSrc`, `mapsUrl`, `whatsappDisplay`, `instagram`, `instagramUrl`, `email`, `googleBusinessUrl`). Only `whatsappNumber`, `whatsappTemplates`, and `analytics` are actually read by the JS; the rest are duplicated in `index.html`. Either wire them up so config is canonical, or delete.
+- [ ] **Stale CSS classes from the multi-page collapse** (`.about-hero`, `.founder-letter`, `.service-card*`, `.home-pillars`, `.menu-aftercare`, `.pillar`, `.stack`, `.divider-brass`, etc.) still linger in `css/components.css` and `css/pages.css`. They're harmless but bloat the stylesheet. A dedicated cleanup pass would shave several KB.
 - [ ] (Optional) Replace `assets/logo/logo-cream.png` with an official Bone Cream logo asset when one is available.
 
 ## Local preview

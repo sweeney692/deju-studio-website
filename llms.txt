@@ -1,0 +1,63 @@
+# Deju Studio
+
+> Deju Studio is an ultra-premium private nail studio in Ubud, Bali, founded and operated by nail artist Desty Zulfa Nabila. The studio specialises in Russian manicure technique, structured gel and BIAB, soft tip / Gel-X / polygel / sculpture extensions, and hand-painted luxury nail art from minimalist to 4D. Bookings are by WhatsApp only.
+
+## About
+
+- Location: Jl. Tirta Tawar, Petulu, Ubud, Bali 80571, Indonesia
+- Hours: Monday to Saturday, by appointment. Sunday closed.
+- Booking: WhatsApp +62 823 4088 9808
+- Instagram: @dejustudio
+- Languages: English
+- Price range: 50,000 to 700,000+ IDR per service
+- Payment: Cash, card, bank transfer, QRIS
+
+## Services and indicative pricing (IDR)
+
+- Manicure (Russian) - 150,000
+- Spa manicure - 200,000
+- Gel manicure - 250,000
+- Hard gel manicure - 300,000
+- BIAB manicure - 400,000
+- Pedicure - 200,000
+- Spa pedicure - 250,000
+- Gel pedicure - 300,000
+- BIAB pedicure - 450,000
+- Soft tip / Gel-X extensions - 400,000
+- Tip overlay - 450,000
+- Polygel - 500,000
+- Sculpture extensions - 600,000
+- Nail art Lv. 1 - 200,000
+- Nail art Lv. 2 - 300,000
+- Nail art Lv. 3 - 400,000
+- Nail art Lv. 4 - 500,000
+- Nail art Lv. 5 (4D) - 700,000
+- Gel removal - 100,000 to 150,000
+- Callus removal - 100,000
+- Nail repair - 50,000
+- Reusable press-ons - from 150,000
+
+## Specialisations
+
+- Russian manicure (advanced cuticle technique for the cleanest cuticle line)
+- Structured gel and BIAB (Builder In A Bottle) for the longest wear
+- Soft tip / Gel-X, polygel, and sculpture extensions
+- Hand-painted luxury nail art (basic to 4D)
+- Nail correction and safe removal
+- Nail health assessment
+
+## Key pages
+
+- [Home](https://www.dejustudio.com/)
+- [Philosophy](https://www.dejustudio.com/#about)
+- [The artist](https://www.dejustudio.com/#artist)
+- [Services and pricing](https://www.dejustudio.com/#services)
+- [Gallery](https://www.dejustudio.com/#gallery)
+- [Visit / Location](https://www.dejustudio.com/#visit)
+- [Reviews](https://www.dejustudio.com/#reviews)
+- [FAQ](https://www.dejustudio.com/#faq)
+- [Book](https://www.dejustudio.com/#book)
+
+## Optional
+
+- [Full content (llms-full.txt)](https://www.dejustudio.com/llms-full.txt)
