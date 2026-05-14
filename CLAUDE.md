@@ -42,7 +42,7 @@ Grouped by who owns the action. User-driven items happen outside the codebase; t
 
 ### User-driven (outside this repo)
 
-1. **Ongoing GBP maintenance.** Hours / address / services / Q&A / verification all done 2026-05-14. **Still ongoing:** review collection ritual (target 5+/month) and periodic photo refresh (every 2 months, 5-10 new shots). Once GBP has 25+ reviews, ask the engineer to add `aggregateRating` to the `BeautySalon` schema (hand-curated, don't fabricate).
+1. **Ongoing GBP maintenance.** Hours / address / services / Q&A / verification all done 2026-05-14. `aggregateRating` (5.0 / 149 reviews) added to `BeautySalon` schema same day. **Still ongoing:** review collection ritual (target 5+/month) and periodic photo refresh (every 2 months, 5-10 new shots). When `reviewCount` increments by ~25, bump the `aggregateRating.reviewCount` in `index.html` to match - it lives in the BeautySalon JSON-LD block in `<head>`.
 
 2. **Update Google Ads ad-schedule** to Mon-Sat (was Sat-Thu when campaign launched). Don't do this during the campaign's bid-strategy learning phase - schedule edits reset learning. Wait until the campaign exits learning, then update.
 
@@ -54,23 +54,19 @@ Grouped by who owns the action. User-driven items happen outside the codebase; t
 
 6. **Local citations (NAP consistency)** on Apple Business Connect, TripAdvisor, Honeycombers Bali, Ubud Now & Then, The Bali Bible, NOW! Bali, Fresha or Booksy, Foursquare. Identical name / address / phone everywhere. Full list in `Deju-Online-Presence-Brief.md`.
 
-7. **Print and deliver the Padma Warung table tent.** The artwork file is at `tabletent/padma-warung.html` and the latest export at `POS Materials/Deju Studio - Tabletent for Padma Warung.pdf` (gitignored). After every copy edit to the HTML, **re-export the PDF** (Chrome -> Print -> Save as PDF, Custom 331x154 mm, margins None, background graphics On) so the PDF stays in sync. Specs to give the Bali print shop: 300-350 gsm uncoated matte card, single-sided, trim to 325x148 mm with 3 mm bleed, score and fold at the three vertical fold lines, glue the 10 mm tab inside the back panel. Order at least 5 spares. Before sending, scan both QR codes from a printed draft to catch any URL or slug typos.
-
-8. **Track Padma Warung commission.** Every WhatsApp inquiry that arrived from the table tent will end with `(Sent from Padma Warung)`. Reconcile those against bookings completed and pay commission per the partner agreement. GA4 also reports the same traffic under `source = padma-warung` for sanity-checking volume.
+7. **Track Padma Warung commission.** Tabletents printed and delivered 2026-05-14. Every WhatsApp inquiry that arrived from the table tent will end with `(Sent from Padma Warung)`. Reconcile those against bookings completed and pay commission per the partner agreement. GA4 also reports the same traffic under `source = padma-warung` for sanity-checking volume. If you ever need to re-print or edit the artwork: source HTML is at `tabletent/padma-warung.html`, exported PDF at `POS Materials/Deju Studio - Tabletent for Padma Warung.pdf` (gitignored). Specs to the Bali print shop: 300-350 gsm uncoated matte card, single-sided, trim to 325x148 mm with 3 mm bleed, fold at the three vertical fold lines, glue the 10 mm tab inside the back panel.
 
 ### Technical (code changes - smaller scope now)
 
-9. **`js/config.js` has dead fields.** `address`, `hours`, `mapEmbedSrc`, `mapsUrl`, `whatsappDisplay`, `instagram`, `instagramUrl`, `email`, `googleBusinessUrl` are defined but no JS reads them - `index.html` hardcodes the values directly. Only `whatsappNumber`, `whatsappTemplates`, `analytics`, and the new `partnerNames` are actually read (by `whatsapp.js` and `analytics.js`). Two valid futures: wire them up so config is canonical, or delete. **Ask before removing.**
+8. **`js/config.js` has dead fields.** `address`, `hours`, `mapEmbedSrc`, `mapsUrl`, `whatsappDisplay`, `instagram`, `instagramUrl`, `email`, `googleBusinessUrl` are defined but no JS reads them - `index.html` hardcodes the values directly. Only `whatsappNumber`, `whatsappTemplates`, `analytics`, and the new `partnerNames` are actually read (by `whatsapp.js` and `analytics.js`). Two valid futures: wire them up so config is canonical, or delete. **Ask before removing.**
 
-10. **Adding more partner table tents.** When a new partner signs up: (a) add `<slug>: '<Display Name>'` to `partnerNames` in `js/config.js`, (b) generate a new QR with `qrencode -o assets/img/qr-<slug>.svg -t SVG -l Q -m 2 --foreground=1E5128 --background=F2EBDD "https://www.dejustudio.com/?ref=<slug>&utm_source=<slug>&utm_medium=qr&utm_campaign=tabletent"`, (c) duplicate `tabletent/padma-warung.html`, find/replace the slug + name + inline data URIs (use the existing python helper pattern - see git history for `tabletent/padma-warung.html`), (d) export to PDF and drop in `POS Materials/`. Tabletent README has the full step-by-step.
+9. **Adding more partner table tents.** When a new partner signs up: (a) add `<slug>: '<Display Name>'` to `partnerNames` in `js/config.js`, (b) generate a new QR with `qrencode -o assets/img/qr-<slug>.svg -t SVG -l Q -m 2 --foreground=1E5128 --background=F2EBDD "https://www.dejustudio.com/?ref=<slug>&utm_source=<slug>&utm_medium=qr&utm_campaign=tabletent"`, (c) duplicate `tabletent/padma-warung.html`, find/replace the slug + name + inline data URIs (use the existing python helper pattern - see git history for `tabletent/padma-warung.html`), (d) export to PDF and drop in `POS Materials/`. Tabletent README has the full step-by-step.
 
-11. **Favicon + manifest + apple-touch-icon set.** Currently only `assets/logo/logo-forest.png` is wired as the `<link rel="icon">`. The plan calls for a full icon set generated via realfavicongenerator.net (favicon.ico, favicon-16.png, favicon-32.png, apple-touch-icon-180.png, icon-192.png, icon-512.png, maskable icon, manifest.json). Easy 30-minute follow-up once the icon set is generated.
+10. **Favicon + manifest + apple-touch-icon set.** Currently only `assets/logo/logo-forest.png` is wired as the `<link rel="icon">`. The plan calls for a full icon set generated via realfavicongenerator.net (favicon.ico, favicon-16.png, favicon-32.png, apple-touch-icon-180.png, icon-192.png, icon-512.png, maskable icon, manifest.json). Easy 30-minute follow-up once the icon set is generated.
 
-12. **Add `aggregateRating` to BeautySalon schema** once GBP has 25+ reviews. Hand-curated with quarterly refresh. Don't fabricate.
+11. **Stale CSS classes** from the multi-page collapse linger in `css/components.css` and `css/pages.css` (e.g. `.about-hero`, `.founder-letter`, `.service-card*`, `.home-pillars`, `.menu-aftercare`, `.divider-brass`, `.pillar`, `.stack`, etc.). They're harmless but bloat the stylesheet. A dedicated cleanup pass would shave several KB.
 
-13. **Stale CSS classes** from the multi-page collapse linger in `css/components.css` and `css/pages.css` (e.g. `.about-hero`, `.founder-letter`, `.service-card*`, `.home-pillars`, `.menu-aftercare`, `.divider-brass`, `.pillar`, `.stack`, etc.). They're harmless but bloat the stylesheet. A dedicated cleanup pass would shave several KB.
-
-14. **(Optional) Replace `assets/logo/logo-cream.png` with an official Bone Cream variant** when one is available.
+12. **(Optional) Replace `assets/logo/logo-cream.png` with an official Bone Cream variant** when one is available.
 
 ## How to resume work
 

@@ -96,7 +96,8 @@ Print artwork lives in [`tabletent/`](tabletent/), one HTML file per partner. Lo
 
 ### Outside the codebase (user-driven)
 
-- [x] **Google Business Profile** updated 2026-05-14 (hours / address / services / Q&A / verification). Ongoing: review collection ritual (target 5+/month) and periodic photo refresh.
+- [x] **Google Business Profile** updated 2026-05-14 (hours / address / services / Q&A / verification). `aggregateRating` (5.0 / 149 reviews) added to BeautySalon schema same day. Ongoing: review collection ritual (target 5+/month) and periodic photo refresh; bump `reviewCount` in the schema every ~25 new reviews.
+- [x] **Padma Warung tabletents** printed and delivered 2026-05-14. Commission reconciliation is now ongoing.
 - [x] **Search Console + Bing Webmaster Tools verified, sitemap submitted** (2026-05-14). Verification via `<meta name="google-site-verification">` in `<head>`. Bing imported the property from Google Search Console.
 - [x] **Desty FAQ review** complete - 4 flagged answers (deposit, cancellation, hygiene, product brands) all updated to current studio policy.
 - [ ] **Build local citations** (NAP consistency) on Apple Business Connect, TripAdvisor, Honeycombers Bali, Ubud Now & Then, The Bali Bible, NOW! Bali, Fresha or Booksy, Foursquare.
@@ -107,8 +108,7 @@ Print artwork lives in [`tabletent/`](tabletent/), one HTML file per partner. Lo
 ### In the codebase (smaller scope)
 
 - [ ] **Favicon + manifest + apple-touch-icon set.** Generate via realfavicongenerator.net and wire up the `<link>` tags in `<head>`. Plus `manifest.json` at repo root.
-- [ ] **Add `aggregateRating` to BeautySalon schema** once GBP has 25+ reviews. Hand-curated. Don't fabricate.
-- [ ] **Decide what to do with unused `js/config.js` fields** (`address`, `hours`, `mapEmbedSrc`, `mapsUrl`, `whatsappDisplay`, `instagram`, `instagramUrl`, `email`, `googleBusinessUrl`). Only `whatsappNumber`, `whatsappTemplates`, and `analytics` are actually read by the JS; the rest are duplicated in `index.html`. Either wire them up so config is canonical, or delete.
+- [ ] **Decide what to do with unused `js/config.js` fields** (`address`, `hours`, `mapEmbedSrc`, `mapsUrl`, `whatsappDisplay`, `instagram`, `instagramUrl`, `email`, `googleBusinessUrl`). Only `whatsappNumber`, `whatsappTemplates`, `analytics`, and `partnerNames` are actually read by the JS; the rest are duplicated in `index.html`. Either wire them up so config is canonical, or delete.
 - [ ] **Stale CSS classes from the multi-page collapse** (`.about-hero`, `.founder-letter`, `.service-card*`, `.home-pillars`, `.menu-aftercare`, `.pillar`, `.stack`, `.divider-brass`, etc.) still linger in `css/components.css` and `css/pages.css`. They're harmless but bloat the stylesheet. A dedicated cleanup pass would shave several KB.
 - [ ] (Optional) Replace `assets/logo/logo-cream.png` with an official Bone Cream logo asset when one is available.
 
