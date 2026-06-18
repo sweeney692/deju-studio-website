@@ -140,7 +140,7 @@ A full set of extensions with a colour or simple finish typically takes two to t
 
 ### What payment methods do you accept?
 
-Cash, card, bank transfer, and QRIS.
+Cash, card, bank transfer, and QRIS. Card payments carry a 3% surcharge.
 
 ### Do you require a deposit?
 
