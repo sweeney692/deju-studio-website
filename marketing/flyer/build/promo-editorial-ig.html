@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Deju Studio - Mani Pedi & Referral Promo - Editorial - Instagram Ad</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --forest:#1E5128; --forest-deep:#143B1C; --sage:#9CAE93;
+      --bone:#F2EBDD; --pure-bone:#FAF6EE; --onyx:#1A1A1A;
+      --brass:#B08D57; --brass-soft:#D4B98A; --whisper:#E8DFCC;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    @page{ size:1080px 1350px; margin:0; }
+    html,body{ width:1080px; height:1350px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; color:var(--onyx);
+      -webkit-font-smoothing:antialiased; overflow:hidden; }
+    .sheet{ position:relative; width:1080px; height:1350px; overflow:hidden;
+      background:radial-gradient(120% 74% at 50% -8%, var(--pure-bone) 0%, var(--bone) 55%, #ece3d2 100%);
+      padding:50px 82px 44px; display:flex; flex-direction:column; align-items:center; }
+    .sheet::before,.sheet::after{ content:""; position:absolute; border-radius:50%; opacity:.22; }
+    .sheet::before{ width:480px; height:480px; border:3px solid var(--brass); top:-220px; right:-170px; }
+    .sheet::after{ width:520px; height:520px; border:3px solid var(--sage); bottom:-240px; left:-190px; opacity:.28; }
+
+    .logo{ width:228px; height:auto; }
+    .eyebrow{ font-size:18px; letter-spacing:.34em; text-transform:uppercase; color:var(--brass);
+      font-weight:600; margin-top:14px; text-align:center; }
+    .rule{ width:96px; height:3px; background:var(--brass); margin:18px auto 0; opacity:.7; }
+
+    .seal{ position:absolute; top:42px; right:52px; z-index:4; width:144px; height:144px; border-radius:50%;
+      background:var(--forest); border:3px solid var(--brass-soft); transform:rotate(-7deg);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+      filter:drop-shadow(0 10px 18px rgba(20,59,28,.28)); }
+    .seal .s-amt{ font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:50px; line-height:.9; color:var(--bone); }
+    .seal .s-sub{ font-size:15px; letter-spacing:.28em; text-transform:uppercase; color:var(--brass-soft); font-weight:600; margin-top:3px; }
+
+    .hero{ text-align:center; margin-top:18px; }
+    .hero h1{ font-family:'Fraunces',Georgia,serif; color:var(--forest); font-weight:500;
+      font-size:78px; line-height:.95; letter-spacing:-.015em; }
+    .hero h1 .ital{ display:block; font-style:italic; font-weight:400; font-size:76px; margin-top:3px; }
+    .lead{ max-width:620px; margin:18px auto 0; font-size:24px; line-height:1.5; color:#3a352c; }
+
+    /* Frame matches the photo's true 4:3 ratio so the whole image shows - every nail visible, no crop. */
+    figure.photo{ margin-top:30px; width:700px; height:525px; overflow:hidden; border:7px solid var(--pure-bone);
+      border-radius:54% 46% 53% 47% / 52% 51% 49% 48%;
+      filter:drop-shadow(0 16px 18px rgba(20,59,28,.22)); }
+    figure.photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block; }
+
+    .offers{ width:100%; margin-top:36px; display:flex; align-items:stretch; gap:0; }
+    .offer{ flex:1; text-align:center; padding:0 28px; }
+    .offer .o-label{ font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:500;
+      color:var(--forest); font-size:35px; line-height:1.04; }
+    .offer .o-text{ margin:12px auto 0; font-size:23px; line-height:1.4; color:#3a352c; }
+    .offer .o-text strong{ color:var(--forest); font-weight:600; }
+    .vdiv{ flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; padding:8px 0; }
+    .vdiv::before,.vdiv::after{ content:""; width:2px; flex:1; background:var(--whisper); }
+    .vdiv span{ font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:29px; color:var(--brass); }
+    .terms{ width:100%; text-align:center; margin-top:22px; font-size:18px; letter-spacing:.04em; color:#6b6657; }
+
+    .foot{ width:100%; margin-top:24px; background:var(--forest); color:var(--bone);
+      padding:24px 40px; text-align:center; }
+    .foot .rlabel{ font-size:17px; letter-spacing:.24em; text-transform:uppercase;
+      color:var(--brass-soft); font-weight:600; }
+    .foot .lines{ margin-top:11px; font-size:23px; line-height:1.5; }
+    .foot .lines strong{ font-weight:600; }
+    .foot .addr{ margin-top:6px; font-size:21px; color:var(--whisper); }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="seal"><div class="s-amt">10%</div><div class="s-sub">Off</div></div>
+
+    <img class="logo" src="{{asset:logo-forest-trim.png}}" alt="Deju Private Nail Studio">
+    <div class="eyebrow">Ubud, Bali &middot; Private Nail Atelier</div>
+    <div class="rule"></div>
+
+    <section class="hero">
+      <h1>Two ways<span class="ital">to treat yourself</span></h1>
+      <p class="lead">Whichever suits you, with Deju&rsquo;s compliments.</p>
+    </section>
+
+    <figure class="photo"><img src="{{asset:mani-pedi.jpg}}" alt="Manicure and pedicure by Deju Studio"></figure>
+
+    <section class="offers">
+      <div class="offer">
+        <div class="o-label">The Mani &amp; Pedi</div>
+        <p class="o-text">Book a manicure and pedicure together and enjoy <strong>10% off</strong> the pair.</p>
+      </div>
+      <div class="vdiv"><span>or</span></div>
+      <div class="offer">
+        <div class="o-label">Refer a Friend</div>
+        <p class="o-text">Introduce a friend and you both enjoy <strong>10% off</strong> your next appointment.</p>
+      </div>
+    </section>
+    <div class="terms">One offer per visit &middot; By appointment</div>
+
+    <footer class="foot">
+      <div class="rlabel">Reservations</div>
+      <div class="lines"><strong>WhatsApp</strong> +62 823-4088-9808 &nbsp;&middot;&nbsp; <strong>Instagram</strong> @dejustudio</div>
+      <div class="addr">Jl. Tirta Tawar, Petulu, Ubud</div>
+    </footer>
+  </div>
+</body>
+</html>

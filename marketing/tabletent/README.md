@@ -81,7 +81,7 @@ gs -dSAFER -dBATCH -dNOPAUSE \
 ## Adding a new partner
 
 1. Pick a slug (lowercase, hyphenated, no spaces): `villa-rumi`, `warung-bodag`, etc.
-2. Add it to `partnerNames` in [../js/config.js](../js/config.js):
+2. Add it to `partnerNames` in [../../js/config.js](../../js/config.js):
    ```js
    partnerNames: {
      'padma-warung': 'Padma Warung',
@@ -108,8 +108,8 @@ gs -dSAFER -dBATCH -dNOPAUSE \
    logo_uri    = "data:image/png;base64," + base64.b64encode(logo).decode()
    booking_uri = "data:image/svg+xml;base64," + base64.b64encode(booking_qr).decode()
    ig_uri      = "data:image/svg+xml;base64," + base64.b64encode(ig_qr).decode()
-   p = pathlib.Path(f"tabletent/{slug}.html")
-   html = pathlib.Path("tabletent/padma-warung.html").read_text()
+   p = pathlib.Path(f"marketing/tabletent/{slug}.html")
+   html = pathlib.Path("marketing/tabletent/padma-warung.html").read_text()
    # Replace the three data URIs in the source by re-inlining from disk
    # (or text-find the existing data: prefixes and swap). Then replace
    # 'Padma Warung' -> 'Villa Rumi' and 'padma-warung' -> 'villa-rumi'.

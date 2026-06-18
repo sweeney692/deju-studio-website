@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Deju Studio - Press On Nails Workshop - Bold - Story</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --forest:#1E5128; --forest-deep:#143B1C; --sage:#9CAE93;
+      --bone:#F2EBDD; --pure-bone:#FAF6EE; --onyx:#1A1A1A;
+      --brass:#B08D57; --brass-soft:#D4B98A; --whisper:#E8DFCC;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    @page{ size:1080px 1920px; margin:0; }
+    html,body{ width:1080px; height:1920px; background:#111; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; color:var(--bone);
+      -webkit-font-smoothing:antialiased; overflow:hidden; }
+    .sheet{ position:relative; width:1080px; height:1920px; overflow:hidden; }
+    .bg{ position:absolute; inset:0; background:url("{{asset:p-butterfly-black.jpg}}") center 30% / cover no-repeat; }
+    .scrim{ position:absolute; inset:0;
+      background:linear-gradient(180deg,
+        rgba(9,17,9,.84) 0%, rgba(9,17,9,.72) 26%, rgba(10,20,10,.50) 37%,
+        rgba(11,22,11,.24) 47%, rgba(11,22,11,.16) 60%, rgba(12,24,12,.42) 70%,
+        rgba(10,20,10,.86) 84%, rgba(9,20,10,.98) 100%); }
+    .content{ position:absolute; inset:0; padding:77px 82px 72px; display:flex; flex-direction:column; }
+
+    .badge{ position:absolute; top:67px; right:77px; z-index:3; width:210px; height:210px; border-radius:50%;
+      border:4px solid var(--brass-soft); background:rgba(20,40,22,.52); backdrop-filter:blur(1px);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+      box-shadow:0 20px 60px rgba(0,0,0,.35); transform:rotate(-4deg); }
+    .badge .b-top{ font-size:16px; letter-spacing:.26em; text-transform:uppercase; color:var(--brass-soft); font-weight:600; }
+    .badge .b-amt{ font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:56px; line-height:1; color:var(--bone); margin:8px 0; }
+    .badge .b-cur{ font-size:20px; letter-spacing:.18em; color:var(--bone); font-weight:600; }
+    .badge .b-sub{ font-size:16px; letter-spacing:.2em; text-transform:uppercase; color:var(--brass-soft); margin-top:8px; }
+
+    .hero{ }
+    .eyebrow{ font-size:21px; letter-spacing:.32em; text-transform:uppercase; color:var(--brass-soft); font-weight:600; }
+    .hero h1{ font-family:'Fraunces',Georgia,serif; font-weight:500; color:var(--bone);
+      font-size:114px; line-height:.97; letter-spacing:-.015em; margin-top:26px; }
+    .hero h1 .ital{ display:block; font-style:italic; font-weight:400; font-size:123px; }
+    .lead{ max-width:760px; margin-top:31px; font-size:33px; line-height:1.5; color:#ece4d2; }
+    .ledby{ font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:34px; color:var(--brass-soft); margin-top:21px; }
+    .flogo{ width:168px; height:auto; display:block; margin-top:18px; }
+
+    .spacer{ flex:1; min-height:24px; }
+
+    .getrow{ margin-top:0; padding:26px 36px; background:rgba(8,15,8,.58);
+      border:1.5px solid rgba(212,185,138,.30); position:relative; top:27px; }
+    .getlabel{ font-size:23px; letter-spacing:.26em; text-transform:uppercase; color:var(--brass-soft);
+      font-weight:600; margin-bottom:20px; }
+    .getgrid{ display:grid; grid-template-columns:1fr 1fr; gap:15px 51px; }
+    .getgrid div{ display:flex; align-items:baseline; gap:15px; font-size:31px; line-height:1.2; color:#f2ecdd; }
+    .getgrid .tick{ color:var(--brass-soft); font-family:'Fraunces',serif; font-size:33px; flex:0 0 auto; }
+
+    .foot{ margin-top:41px; display:flex; align-items:center; justify-content:space-between; gap:41px; }
+    .foot-left{ display:flex; flex-direction:column; }
+    .foot .resv .rlabel{ font-size:20px; letter-spacing:.26em; text-transform:uppercase; color:var(--brass-soft); font-weight:600; }
+    .foot .resv .lines{ margin-top:15px; font-size:30px; line-height:1.5; color:var(--bone); }
+    .foot .resv .lines strong{ font-weight:600; }
+    .foot .fmt{ font-family:'Fraunces',serif; font-style:italic; font-size:26px; color:var(--brass-soft); margin-top:15px; }
+    .foot .qr{ text-align:center; flex:0 0 auto; position:relative; top:15px; }
+    .foot .qr img{ width:150px; height:150px; display:block; background:var(--bone); padding:9px; }
+    .foot .qr span{ display:block; font-size:16px; letter-spacing:.2em; text-transform:uppercase; color:var(--brass-soft); margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="bg"></div>
+    <div class="scrim"></div>
+    <div class="content">
+      <div class="badge">
+        <div class="b-top">From</div>
+        <div class="b-amt">450.000</div>
+        <div class="b-cur">IDR</div>
+        <div class="b-sub">per person</div>
+      </div>
+
+      <section class="hero">
+        <div class="eyebrow">One-day workshop</div>
+        <h1>Press On Nails<span class="ital">Workshop</span></h1>
+        <p class="lead">Make press-on nails by hand, from sizing and shaping to gel application and
+          detailed nail art, for your own wear and your own small business.</p>
+        <p class="ledby">Led by Desty, Deju&rsquo;s founding artist.</p>
+        <img class="flogo" src="{{asset:logo-cream-trim.png}}" alt="Deju Private Nail Studio">
+      </section>
+
+      <div class="spacer"></div>
+
+      <div class="getrow">
+        <div class="getlabel">What you will take home</div>
+        <div class="getgrid">
+          <div><span class="tick">&#10022;</span> Personal coaching with Desty</div>
+          <div><span class="tick">&#10022;</span> Your own handmade press-on set</div>
+          <div><span class="tick">&#10022;</span> A press-on package set to keep</div>
+          <div><span class="tick">&#10022;</span> Certificate of completion</div>
+        </div>
+      </div>
+
+      <footer class="foot">
+        <div class="foot-left">
+          <div class="resv">
+            <div class="rlabel">Reservation</div>
+            <div class="lines"><strong>WhatsApp</strong> +62 823-4088-9808<br><strong>Instagram</strong> @dejustudio</div>
+            <div class="fmt">One day, four hours &middot; limited seats</div>
+          </div>
+        </div>
+        <div class="qr"><img src="{{asset:qr-forest.png}}" alt="Scan to reserve"><span>Scan to reserve</span></div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

@@ -7,7 +7,7 @@ Marketing website for [Deju Studio](https://www.dejustudio.com), an ultra-premiu
 - Production: https://www.dejustudio.com (canonical). The apex `https://dejustudio.com` 301-redirects to www.
 - Netlify project: `dejustudio` (auto-deploys from `main`). Primary domain flipped from apex to www on 2026-05-14.
 - Analytics: GA4 `G-BZ8DVJJCNE` + Google Ads `AW-11529975683` (conversion label `tzL7CKzm76McEIPv9fkq`). All firing as of 2026-04-28.
-- Live Google Ads Search campaign: "Deju Studio - Search - Ubud Tourists", 75k IDR/day, English, presence-based Ubud + 10km radius, Sat-Thu schedule (will be updated to Mon-Sat once the campaign exits bid-strategy learning).
+- Live Google Ads Search campaign: "Deju Studio - Search - Ubud Tourists", 75k IDR/day, English, presence-based Ubud + 10km radius, Sat-Thu schedule (will be updated to Sun-Fri to match current opening days once the campaign exits bid-strategy learning).
 - Google Search Console + Bing Webmaster Tools verified, sitemap submitted (2026-05-14).
 
 ## Stack
@@ -41,7 +41,9 @@ Marketing website for [Deju Studio](https://www.dejustudio.com), an ultra-premiu
 │   ├── img/                    Web-optimised gallery photos (1600w JPG + WebP pairs)
 │   └── logo/                   Forest + Cream logo variants
 ├── scripts/optimize-images.sh  Regenerates assets/img/ from the source folder
-├── tabletent/                  Print artwork for partner-restaurant table tents (one HTML per partner)
+├── marketing/                  Off-site marketing collateral (not served by the website)
+│   ├── flyer/                  Promo + workshop flyers - HTML templates → Chrome export. See marketing/flyer/README.md
+│   └── tabletent/              Partner-restaurant table-tent print artwork (one HTML per partner)
 ├── Summaries/                  Session-by-session change summaries (human-readable history, tracked)
 ├── netlify.toml                Publish + redirects (legacy /about.html → /#about etc) + cache + CSP/HSTS headers
 ├── robots.txt                  Explicit allow-list for 18 AI/search crawlers (GPTBot, ClaudeBot, etc.)
@@ -79,7 +81,7 @@ How it works:
 - The QR also carries `utm_source=<slug>&utm_medium=qr&utm_campaign=tabletent` so GA4 captures the same traffic in Acquisition reports.
 - Non-partner visitors keep the per-service templates unchanged.
 
-Print artwork lives in [`tabletent/`](tabletent/), one HTML file per partner. Logo + QR codes are inlined as `data:` URIs so the file renders standalone (works under `file://` and outside the repo). Exported print-ready PDFs live in `POS Materials/` (gitignored). See [`tabletent/README.md`](tabletent/README.md) for the full step-by-step on adding a partner, generating the QR, exporting the PDF, and the spec sheet to send to the print shop.
+Print artwork lives in [`marketing/tabletent/`](marketing/tabletent/), one HTML file per partner. Logo + QR codes are inlined as `data:` URIs so the file renders standalone (works under `file://` and outside the repo). Exported print-ready PDFs live in `POS Materials/` (gitignored). See [`marketing/tabletent/README.md`](marketing/tabletent/README.md) for the full step-by-step on adding a partner, generating the QR, exporting the PDF, and the spec sheet to send to the print shop.
 
 ## Mobile menu pitfall
 
