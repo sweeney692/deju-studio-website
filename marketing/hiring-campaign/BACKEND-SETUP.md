@@ -18,26 +18,27 @@ Then a production redeploy registered `careers-application` (13 fields), and a t
 
 > Note: Netlify Forms free tier allows 100 submissions/month and file uploads up to 10 MB total per submission. The portfolio **link** is the primary input; the file upload is optional, which keeps usage light. If volume or uploads exceed the tier, upgrade Forms or switch to the function-based store noted in the plan.
 
-## Step 2 - Email notifications to info.dejustudio@gmail.com (Careers label)
+## Step 2 - Email notifications to info.dejustudio@gmail.com (DONE 2026-06-23)
 
-1. Netlify: **Forms -> Settings and notifications -> Form notifications -> Add notification -> Email notification**.
-2. Form: `careers-application`. Email to: `info.dejustudio@gmail.com`.
-3. In Gmail, create a label **Careers** and a filter:
-   - Matches: `subject:("careers-application")` OR `from:(forms@netlify.com)` (adjust to the actual Netlify sender).
-   - Do this: Apply label **Careers**, Skip the Inbox (optional), never send to Spam.
-4. This keeps applicant mail separate from client/booking mail. The WhatsApp booking line is untouched.
+Configured via the Netlify API (no dashboard needed):
 
-## Step 3 - Mirror submissions into a Google Sheet (the agent's store)
+```
+netlify api createHookBySiteId --data '{"site_id":"8ff708dc-55db-4452-b5ba-16076b9d3320","body":{"type":"email","event":"submission_created","data":{"email":"info.dejustudio@gmail.com"}}}'
+```
 
-This gives the screening agent a clean, structured store to read.
+Every submission now emails `info.dejustudio@gmail.com`. **Optional, manual (not automatable here):** add a Gmail **Careers** label + filter (Gmail's filter creation is not in the available tooling, and the filter must be made in the `info.dejustudio@gmail.com` account). Match on the Netlify sender / "careers-application" subject, apply the label. Inbox hygiene only; the notification works without it.
 
-1. Create a Google Sheet named **Deju - Nail Artist Applications**. Add a header row matching the form fields:
-   `timestamp | name | age | area | email | phone | experience | manicure_experience | english_level | open_to_training | portfolio_link | portfolio_file | about | score | rank | notes`
-   (the last three are filled by the screening agent.)
-2. In the Sheet: **Extensions -> Apps Script**. Paste the contents of `apps-script.gs` (in this folder). Save.
-3. Deploy the Apps Script as a **Web app** (Deploy -> New deployment -> Web app; Execute as: Me; Who has access: Anyone). Copy the web app URL.
-4. In Netlify: **Forms -> Settings and notifications -> Add notification -> Outgoing webhook**. Form: `careers-application`. URL: the Apps Script web app URL. Netlify will POST each submission JSON to it, and the script appends a row.
-5. Submit another test application and confirm a new row appears in the Sheet.
+## Step 3 - The agent's store: read straight from the Netlify Forms API (no Sheet needed)
+
+The screening agent reads submissions directly from Netlify, so the Google Sheet + Apps Script webhook from earlier drafts is **no longer required**:
+
+```
+netlify api listFormSubmissions --data '{"form_id":"6a39f024e9537d0008564fa1"}'
+```
+
+Each submission's `data` object holds the fields. The agent ranks and outputs a digest; no write-back store is needed for v1.
+
+**Optional (only if you want a spreadsheet view or persistent score write-back):** create a Google Sheet, paste `apps-script.gs` into Extensions -> Apps Script, deploy it as a Web app, and add its URL as a Netlify **outgoing webhook** (Forms -> notifications -> Outgoing webhook) so each submission also appends a row. Not needed otherwise.
 
 ## Step 4 - GA4 conversion (already wired)
 
