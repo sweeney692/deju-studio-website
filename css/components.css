@@ -214,43 +214,6 @@
   color: var(--brass-soft);
 }
 
-/* Service card */
-.service-card {
-  background: var(--pure-bone);
-  padding: var(--space-7);
-  border: 1px solid var(--whisper);
-  transition: transform var(--t-hover) var(--ease), box-shadow var(--t-hover) var(--ease);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  height: 100%;
-}
-.service-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px -20px rgba(20, 59, 28, 0.25);
-}
-.service-card__title { font-size: clamp(24px, 2.4vw, 32px); }
-.service-card__rule { border: 0; border-top: 1px solid var(--brass); margin-top: auto; }
-.service-card__meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-size: 14px;
-}
-.service-card__price {
-  font-family: var(--font-display);
-  font-size: 22px;
-  color: var(--deju-forest);
-  font-weight: 500;
-}
-
-/* Service grid */
-.service-grid {
-  display: grid;
-  gap: var(--space-5);
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
 /* Hero */
 .hero {
   position: relative;
@@ -302,50 +265,8 @@
   color: var(--deju-forest);
 }
 
-/* Pillars */
-.pillars {
-  display: grid;
-  gap: var(--space-6);
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-.pillar h4 { color: var(--deju-forest); margin-bottom: var(--space-3); }
-
 /* Gallery base class - retained so js/gallery.js continues to find items via .gallery-item.
    Layout/visual is owned by .gallery-scatter / .gallery-scatter__item further down. */
-
-.filter-bar {
-  position: sticky;
-  top: 64px;
-  z-index: 10;
-  background: rgba(242, 235, 221, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--whisper);
-  padding-block: var(--space-4);
-  margin-bottom: var(--space-7);
-}
-.filter-bar ul {
-  display: flex;
-  gap: var(--space-2);
-  flex-wrap: wrap;
-}
-.filter-bar button {
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  padding: var(--space-2) var(--space-5);
-  border: 1px solid var(--whisper);
-  background: transparent;
-  color: var(--rich-onyx);
-  transition: all var(--t-hover) var(--ease);
-  text-transform: uppercase;
-}
-.filter-bar button:hover, .filter-bar button[aria-pressed="true"] {
-  background: var(--deju-forest);
-  color: var(--bone-cream);
-  border-color: var(--deju-forest);
-}
 
 /* Lightbox */
 .lightbox {
@@ -393,8 +314,7 @@
 .lightbox__nav--prev { left: var(--space-5); }
 .lightbox__nav--next { right: var(--space-5); }
 
-/* Service menu (Services page) */
-.menu-section h3 { margin-bottom: var(--space-6); }
+/* Service menu */
 .menu-list { display: flex; flex-direction: column; }
 .menu-item {
   display: grid;
@@ -427,13 +347,6 @@
   grid-row: 1 / 2;
   grid-column: 2 / 3;
 }
-.menu-item__book {
-  grid-column: 1 / -1;
-  margin-top: var(--space-3);
-  align-self: start;
-  justify-self: start;
-}
-
 /* Compact menu - two-column editorial layout used on the single-page index */
 .menu-list--compact {
   display: grid;

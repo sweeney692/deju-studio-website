@@ -93,6 +93,7 @@ Print artwork lives in [`marketing/tabletent/`](marketing/tabletent/), one HTML 
 - The conversion event is fired in `js/whatsapp.js` on every `[data-wa]` CTA click. It sends both a GA4 `click_whatsapp` event and an Ads `conversion` event with `send_to: AW-11529975683/tzL7CKzm76McEIPv9fkq`.
 - To test end-to-end: open the live site in a clean browser (no ad blockers / privacy extensions), open DevTools Network tab, filter `google`, click any WhatsApp CTA. Expect `gtag/js?id=AW-...` (200), `collect?v=2&tid=G-BZ8DVJJCNE&...` (204), and a `googleads.g.doubleclick.net/pagead/...` request.
 - If `gtag/js` fails with `ERR_BLOCKED_BY_CLIENT`, that's the testing browser's extension or system-level network blocker - not a site bug.
+- **GA4 conversion tracking is confirmed healthy** (checked 2026-06-23): `click_whatsapp` is a key event and records ~130 conversions / 90 days across all sources. **GA4 is queryable from Claude Code** via the `analytics-mcp` server (property `534840336`, read-only service-account key at `~/deju-ga-mcp-key.json`). If the **Google Ads** dashboard shows far fewer conversions than GA4, that's an Ads-side conversion-action setting (Primary vs Secondary / status), not a tracking bug - see `CLAUDE.md` and `Summaries/2026-06-23-ga-conversion-diagnosis-and-cleanup.md`.
 
 ## Open items
 
