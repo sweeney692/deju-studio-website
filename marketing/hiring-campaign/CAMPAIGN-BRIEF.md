@@ -1,7 +1,7 @@
 # Deju Studio - Nail Artist Hiring Campaign
 
-Meta (Instagram + Facebook) ad campaign to hire 3 nail artists. Budget: **1,000,000 IDR**.
-Created 2026-06-23. Channel: Instagram + Facebook. Destination: `https://www.dejustudio.com/careers`.
+Meta **Instagram-only** ad campaign to hire 3 nail artists. Budget: **1,000,000 IDR**.
+Created 2026-06-23. Channel: **Instagram only** (no Facebook placements - decided 2026-06-23). Destination: `https://www.dejustudio.com/careers`.
 
 House style throughout: no em dashes, no emoji, no exclamation marks.
 
@@ -10,7 +10,7 @@ House style throughout: no em dashes, no emoji, no exclamation marks.
 ## 1. The funnel (how it all connects)
 
 ```
-Meta ad (IG/FB) ──┐
+Instagram ad ─────┐
 Flyer link / URL ─┼─▶ dejustudio.com/careers ─▶ application form ─▶ email to info.dejustudio@gmail.com (Careers label)
 Organic + WA ─────┘                                              └▶ Netlify Forms API ─▶ screening agent ─▶ shortlist
 ```
@@ -35,15 +35,15 @@ Keep it simple. A 1M IDR budget (~$61) does not support splitting into many ad s
 - **1 Campaign** - objective **Traffic**, optimised for **Landing page views**.
   - Do NOT pick "Leads"/conversion optimisation: it needs far more events than this budget produces to exit the learning phase. Optimise for landing-page-views, and measure form submissions as the real KPI (GA4).
 - **1 Ad set**:
-  - **Budget:** ~70,000 to 85,000 IDR/day, **12 to 14 days** (total ~1,000,000 IDR). Use a daily budget, not lifetime, so you can pause/scale.
+  - **Budget:** ~75,000 IDR/day for ~13 days (total ~1,000,000 IDR). Use a daily budget, not lifetime, so you can pause/scale.
   - **Location:** Ubud + Gianyar Regency. If using a pin + radius, drop a pin on Ubud and set ~4 km (note Meta's minimum radius and Special Ad Category caveat below).
   - **Age:** 19 to 35. **Gender:** Women. (See Special Ad Category caveat.)
   - **Detailed targeting (interests):** Manicure, Nail art, Nail salon, Beauty salon, Cosmetology, Beauty. Keep it broad-ish; the local base is small.
   - **Languages:** leave open. The English ad copy self-selects English speakers.
-  - **Placements:** Advantage+ placements (Instagram + Facebook feed, Stories, Reels, Explore).
+  - **Placements: Manual placements - Instagram only** (Feed, Stories, Reels, Explore). Switch off Advantage+ placements and **untick Facebook, Audience Network, and Messenger**. Note: a Facebook Page must still be *linked* to the Instagram account to run Instagram ads at all - you just place no ads on it.
 - **2 Ads** (A/B):
-  - Ad A: the **Story** creative (1080x1920) - photo 1 (single hand, lotus).
-  - Ad B: the **Facebook square** (1080x1080) - photo 2 (two hands). Or run the 1080x1350 in feed.
+  - Ad A: the **Story** creative (1080x1920) - photo 1 (single hand, lotus) - serves Stories/Reels.
+  - Ad B: the **1080x1350** feed creative - photo 2 (two hands) - serves Instagram feed. (The 1080x1080 FB square is no longer used now that Facebook placements are off.)
   - After 3 to 4 days, pause the weaker ad and move its budget to the winner.
 
 ### Special Ad Category caveat (read before launch)
@@ -60,7 +60,8 @@ We are hiring nail artists in Ubud. Apply at dejustudio.com/careers
 **Headline (link card):** Now hiring: Nail Artist in Ubud
 **Description:** Six months experience, a portfolio, and good English. Apply online.
 **CTA button:** Apply Now
-**Destination URL:** `https://www.dejustudio.com/careers?utm_source=meta&utm_medium=paid&utm_campaign=hiring`
+**Destination URL:** `https://www.dejustudio.com/careers?utm_source=instagram&utm_medium=paid&utm_campaign=hiring`
+(Use `utm_source=instagram` so paid Instagram is distinct in GA4 from organic Instagram, which arrives as source `ig` / medium `social`.)
 
 ## 5. Organic amplification (free, do alongside the ads)
 
@@ -72,7 +73,7 @@ We are hiring nail artists in Ubud. Apply at dejustudio.com/careers
 
 ## 6. Tracking and KPIs
 
-- **UTMs:** the ad link carries `utm_source=meta` (set it on the destination URL in Ads Manager). The flyer now uses a written link (no QR), so people typing `dejustudio.com/careers` arrive as Direct/typed traffic in GA4. If you want flyer attribution, print a short redirect link that appends `utm_source=flyer` (optional).
+- **UTMs:** the ad link carries `utm_source=instagram&utm_medium=paid` (set it on the destination URL in Ads Manager). The flyer now uses a written link (no QR), so people typing `dejustudio.com/careers` arrive as Direct/typed traffic in GA4. If you want flyer attribution, print a short redirect link that appends `utm_source=flyer` (optional).
 - **Success metric:** completed applications (GA4 `generate_lead` form-submit event - see `BACKEND-SETUP.md` to wire it), not clicks.
 - **Watch daily for the first 3 days:** CPM, CPC, landing-page views, then consolidate to the winning ad.
 - **Realistic expectation:** ~$61 in a hyperlocal audience yields roughly tens of thousands of impressions and a few hundred to ~1,000 clicks. Treat the ad as one of three channels (ads + organic + flyer). For 3 hires in a tight community, the combined reach is enough.

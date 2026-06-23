@@ -27,7 +27,8 @@ png () { # <template> <out.png> [WxH] [scale]
 
 for t in editorial-a4 editorial-story photographic-a4 photographic-story \
          promo-editorial-story promo-editorial-ig promo-editorial-fb promo-editorial-a4 \
-         hiring-editorial-story hiring-editorial-ig hiring-editorial-fb hiring-editorial-a4; do inline "$t"; done
+         hiring-editorial-story hiring-editorial-ig hiring-editorial-fb hiring-editorial-a4 \
+         hiring-editorial-landscape; do inline "$t"; done
 
 echo "Exporting workshop flyers:"
 pdf editorial-a4       "Deju - Workshop Flyer - Editorial - A4.pdf"
@@ -52,6 +53,7 @@ png hiring-editorial-story "Deju - Hiring - Editorial - Story.png"              
 png hiring-editorial-ig    "Deju - Hiring - Editorial - Instagram 1080x1350.png" 1080,1350
 png hiring-editorial-fb    "Deju - Hiring - Editorial - Facebook 1080x1080.png" 1080,1080
 png hiring-editorial-a4    "Deju - Hiring - Editorial - A4.png" 794,1123 2               # A4 raster for WhatsApp image share
+png hiring-editorial-landscape "Deju - Hiring - Editorial - Landscape 1200x628.png" 1200,628   # 1.91:1 landscape (Meta link/feed)
 pdf hiring-editorial-story "Deju - Hiring - Editorial - Story.pdf"
 pdf hiring-editorial-a4    "Deju - Hiring - Editorial - A4.pdf"                           # vector A4 (210x297mm) for print / WhatsApp document
 
