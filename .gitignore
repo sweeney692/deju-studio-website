@@ -25,6 +25,9 @@ POS Materials/
 # Plan + memory (live outside repo)
 .claude/
 
+# Business-expansion workspace (strategy / investment planning, kept local-only)
+business-expansion/
+
 # Marketing flyer working files (kept locally, not committed). We DO commit the
 # build pipeline (build/ templates + assets + build.sh + inline.py) and the final
 # exported flyers, but not the raw photo sources, retired directions, or the
