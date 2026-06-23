@@ -6,11 +6,15 @@ The form is already in `index.html` (`name="careers-application"`, `data-netlify
 
 ---
 
-## Step 1 - Confirm Netlify detects the form
+## Step 1 - Form detection (DONE 2026-06-23)
 
-1. Deploy `main` (push). Netlify parses the deployed HTML and auto-registers the form `careers-application`.
-2. In Netlify: **Site configuration -> Forms** should now list `careers-application`. If it does not appear, ensure **Form detection** is enabled and redeploy.
-3. Submit one test application on the live site. It should appear under **Forms -> careers-application -> Submissions**, and you should land on the thank-you page.
+The form is already detected and live in production. On first deploy it registered 0 forms because the site had `processing_settings.ignore_html_forms = true` (form detection off - the site never had a form before). This was flipped via the API:
+
+```
+netlify api updateSite --data '{"site_id":"8ff708dc-55db-4452-b5ba-16076b9d3320","body":{"processing_settings":{"html":{"pretty_urls":true},"ignore_html_forms":false}}}'
+```
+
+Then a production redeploy registered `careers-application` (13 fields), and a test submission was captured and deleted. **Gotcha for the future:** if form submissions ever stop being captured, check `ignore_html_forms` is still `false` (and that form detection only runs on **production** deploys, not CLI draft previews).
 
 > Note: Netlify Forms free tier allows 100 submissions/month and file uploads up to 10 MB total per submission. The portfolio **link** is the primary input; the file upload is optional, which keeps usage light. If volume or uploads exceed the tier, upgrade Forms or switch to the function-based store noted in the plan.
 
