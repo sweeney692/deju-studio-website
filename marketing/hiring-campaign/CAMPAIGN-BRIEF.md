@@ -10,12 +10,12 @@ House style throughout: no em dashes, no emoji, no exclamation marks.
 ## 1. The funnel (how it all connects)
 
 ```
-Meta ad (IG/FB) ─┐
-Flyer QR / URL ───┼─▶ dejustudio.com/careers ─▶ application form ─▶ info.dejustudio@gmail.com (Careers label)
-Organic + WA ─────┘                                              └▶ Google Sheet ─▶ screening agent ─▶ shortlist
+Meta ad (IG/FB) ──┐
+Flyer link / URL ─┼─▶ dejustudio.com/careers ─▶ application form ─▶ email to info.dejustudio@gmail.com (Careers label)
+Organic + WA ─────┘                                              └▶ Netlify Forms API ─▶ screening agent ─▶ shortlist
 ```
 
-Applications never touch the WhatsApp booking line. See `BACKEND-SETUP.md` for the form/store wiring.
+Applications never touch the WhatsApp booking line. The email notification is live; the screening agent reads submissions straight from the Netlify Forms API (no Google Sheet required). See `BACKEND-SETUP.md`.
 
 ## 2. Creative assets (built, in `marketing/flyer/`)
 
@@ -72,7 +72,7 @@ We are hiring nail artists in Ubud. Apply at dejustudio.com/careers
 
 ## 6. Tracking and KPIs
 
-- **UTMs:** ads use `utm_source=meta`; the flyer QR uses `utm_source=flyer`. Keep them distinct so GA4 attributes each channel.
+- **UTMs:** the ad link carries `utm_source=meta` (set it on the destination URL in Ads Manager). The flyer now uses a written link (no QR), so people typing `dejustudio.com/careers` arrive as Direct/typed traffic in GA4. If you want flyer attribution, print a short redirect link that appends `utm_source=flyer` (optional).
 - **Success metric:** completed applications (GA4 `generate_lead` form-submit event - see `BACKEND-SETUP.md` to wire it), not clicks.
 - **Watch daily for the first 3 days:** CPM, CPC, landing-page views, then consolidate to the winning ad.
 - **Realistic expectation:** ~$61 in a hyperlocal audience yields roughly tens of thousands of impressions and a few hundred to ~1,000 clicks. Treat the ad as one of three channels (ads + organic + flyer). For 3 hires in a tight community, the combined reach is enough.
