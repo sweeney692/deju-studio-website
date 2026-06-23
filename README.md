@@ -42,7 +42,7 @@ Marketing website for [Deju Studio](https://www.dejustudio.com), an ultra-premiu
 │   └── logo/                   Forest + Cream logo variants
 ├── scripts/optimize-images.sh  Regenerates assets/img/ from the source folder
 ├── marketing/                  Off-site marketing collateral (not served by the website)
-│   ├── flyer/                  Promo + workshop flyers - HTML templates → Chrome export. See marketing/flyer/README.md
+│   ├── flyer/                  Promo, workshop + hiring flyers - HTML templates → Chrome export. See marketing/flyer/README.md
 │   └── tabletent/              Partner-restaurant table-tent print artwork (one HTML per partner)
 ├── Summaries/                  Session-by-session change summaries (human-readable history, tracked)
 ├── netlify.toml                Publish + redirects (legacy /about.html → /#about etc) + cache + CSP/HSTS headers
