@@ -26,7 +26,8 @@ png () { # <template> <out.png> [WxH] [scale]
 }
 
 for t in editorial-a4 editorial-story photographic-a4 photographic-story \
-         promo-editorial-story promo-editorial-ig promo-editorial-fb promo-editorial-a4; do inline "$t"; done
+         promo-editorial-story promo-editorial-ig promo-editorial-fb promo-editorial-a4 \
+         hiring-editorial-story hiring-editorial-ig hiring-editorial-fb hiring-editorial-a4; do inline "$t"; done
 
 echo "Exporting workshop flyers:"
 pdf editorial-a4       "Deju - Workshop Flyer - Editorial - A4.pdf"
@@ -45,5 +46,13 @@ png promo-editorial-a4    "Deju - Promo - Editorial - A4 WhatsApp.png" 794,1123 
 pdf promo-editorial-story "Deju - Promo - Editorial - Story.pdf"
 pdf promo-editorial-a4    "Deju - Promo - Editorial - A4 WhatsApp.pdf"                  # vector A4 (210x297mm) for print / WhatsApp document
 # Bold direction archived 2026-06-18 (marketing/flyer/_archive) - did not look right.
+
+echo "Exporting hiring flyers (Editorial, all placements):"
+png hiring-editorial-story "Deju - Hiring - Editorial - Story.png"                       # 1080x1920 IG Story + WhatsApp Status
+png hiring-editorial-ig    "Deju - Hiring - Editorial - Instagram 1080x1350.png" 1080,1350
+png hiring-editorial-fb    "Deju - Hiring - Editorial - Facebook 1080x1080.png" 1080,1080
+png hiring-editorial-a4    "Deju - Hiring - Editorial - A4.png" 794,1123 2               # A4 raster for WhatsApp image share
+pdf hiring-editorial-story "Deju - Hiring - Editorial - Story.pdf"
+pdf hiring-editorial-a4    "Deju - Hiring - Editorial - A4.pdf"                           # vector A4 (210x297mm) for print / WhatsApp document
 
 echo "Done."

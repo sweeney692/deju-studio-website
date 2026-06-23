@@ -858,3 +858,84 @@
     text-align: center;
   }
 }
+
+/* Careers / hiring section */
+.careers-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+.careers-block + .careers-block { margin-top: var(--space-6); }
+.careers-block p { color: var(--rich-onyx); }
+.careers-list {
+  list-style: none;
+  margin-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.careers-list li {
+  position: relative;
+  padding-left: var(--space-5);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.careers-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 7px;
+  height: 7px;
+  background: var(--brass);
+}
+
+.careers-form-wrap {
+  background: var(--pure-bone);
+  border: 1px solid var(--whisper);
+  padding: var(--space-7);
+}
+.careers-form { display: flex; flex-direction: column; gap: var(--space-5); }
+.careers-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.careers-field { display: flex; flex-direction: column; gap: var(--space-2); }
+.careers-field label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--deju-forest);
+}
+.careers-field input,
+.careers-field select,
+.careers-field textarea {
+  font-family: var(--font-body);
+  font-size: 16px; /* 16px prevents iOS zoom */
+  line-height: 1.5;
+  color: var(--rich-onyx);
+  background: var(--bone-cream);
+  border: 1px solid var(--whisper);
+  border-radius: 0;
+  padding: var(--space-3) var(--space-4);
+  width: 100%;
+  transition: border-color var(--t-hover) var(--ease);
+}
+.careers-field textarea { resize: vertical; min-height: 96px; }
+.careers-field input:focus,
+.careers-field select:focus,
+.careers-field textarea:focus {
+  outline: none;
+  border-color: var(--deju-forest);
+}
+.careers-field input[type="file"] { padding: var(--space-3); background: transparent; cursor: pointer; }
+.careers-note { color: var(--rich-onyx); opacity: 0.7; margin-top: calc(-1 * var(--space-2)); }
+.careers-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+@media (max-width: 900px) {
+  .careers-grid { grid-template-columns: 1fr; gap: var(--space-7); }
+}
+@media (max-width: 560px) {
+  .careers-row { grid-template-columns: 1fr; }
+  .careers-form-wrap { padding: var(--space-6) var(--space-5); }
+}

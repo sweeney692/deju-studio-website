@@ -21,6 +21,11 @@
   to = "/#visit"
   status = 301
 
+[[redirects]]
+  from = "/careers"
+  to = "/#careers"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application received | Deju Studio</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1E5128">
+  <link rel="canonical" href="https://www.dejustudio.com/careers-thanks">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="icon" type="image/png" href="/assets/logo/logo-forest.png">
+</head>
+<body>
+  <main id="main">
+    <section class="surface-cream" style="min-height: 100vh; display: flex; align-items: center;">
+      <div class="container text-center" style="max-width: 640px;">
+        <a href="/" aria-label="Deju Studio home" style="display: inline-block; margin-bottom: var(--space-7);">
+          <img src="/assets/logo/logo-forest.png" alt="Deju Studio" style="height: 64px; width: auto;">
+        </a>
+        <p class="eyebrow">Application received</p>
+        <h1 style="margin-top: var(--space-4);">Thank you.</h1>
+        <p class="lead" style="margin-top: var(--space-5);">We have your application and your portfolio. We read every one and will reply by email.</p>
+        <p style="margin-top: var(--space-5);">In the meantime, you are welcome to look through the studio's work.</p>
+        <div style="margin-top: var(--space-7); display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a class="btn btn-primary" href="/#gallery">See the work <span class="arrow">&rarr;</span></a>
+          <a class="btn btn-secondary" href="/">Back to home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Reaching this page means an application was submitted: fire the GA4 conversion event. -->
+  <script src="/js/config.js"></script>
+  <script src="/js/analytics.js" defer></script>
+  <script>
+    window.addEventListener('load', function () {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', { event_category: 'careers', event_label: 'application_submitted', value: 1 });
+      }
+    });
+  </script>
+</body>
+</html>

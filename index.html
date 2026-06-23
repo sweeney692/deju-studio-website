@@ -238,6 +238,45 @@
     ]
   }
   </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": "Nail Artist",
+    "description": "<p>Deju Studio, an ultra-premium private nail studio in Ubud, Bali, is hiring nail artists to work alongside founder Desty. You will give each client unhurried, hand-finished work to the studio's standard, with a focus on manicure.</p><p><strong>What we're looking for:</strong> six months or more of nail experience with strong manicure skills, a portfolio to share, conversational or fluent English, based in or near Ubud or Gianyar, friendly and responsible with clients, and eager to learn and be trained.</p><p><strong>What we offer:</strong> competitive salary plus commission on every client, four days off each month, holiday bonus, professional training and mentorship, and free manicure and pedicure.</p>",
+    "datePosted": "2026-06-23",
+    "validThrough": "2026-09-23T23:59",
+    "employmentType": "FULL_TIME",
+    "industry": "Beauty and Personal Care",
+    "occupationalCategory": "39-5092.00 Manicurists and Pedicurists",
+    "directApply": true,
+    "url": "https://www.dejustudio.com/careers",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "@id": "https://www.dejustudio.com/#studio",
+      "name": "Deju Studio",
+      "sameAs": "https://www.dejustudio.com/",
+      "logo": "https://www.dejustudio.com/assets/logo/logo-forest.png"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Tirta Tawar, Petulu",
+        "addressLocality": "Ubud",
+        "addressRegion": "Bali",
+        "postalCode": "80571",
+        "addressCountry": "ID"
+      }
+    },
+    "applicantLocationRequirements": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "jobBenefits": "Competitive salary plus commission per client, four days off per month, holiday bonus, professional training and mentorship, free manicure and pedicure."
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -255,6 +294,7 @@
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#visit">Visit</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="#careers">Careers</a></li>
           <li><a class="btn btn-secondary" data-wa="generic" href="https://wa.me/6282340889808" target="_blank" rel="noopener">Book on WhatsApp <span class="arrow">&rarr;</span></a></li>
         </ul>
       </nav>
@@ -743,6 +783,143 @@
       </div>
     </section>
 
+    <section class="surface-cream" id="careers">
+      <div class="container">
+        <div class="text-center" data-reveal style="margin-bottom: var(--space-7);">
+          <p class="eyebrow">We're hiring</p>
+          <h2>Join the Deju studio.</h2>
+          <p class="lead" style="max-width: 640px; margin: var(--space-5) auto 0;">We are growing our small team of nail artists in Ubud. If you take pride in your craft and love looking after clients, we would like to meet you.</p>
+        </div>
+
+        <div class="careers-grid">
+          <div class="careers-detail" data-reveal>
+            <div class="careers-block">
+              <p class="eyebrow">The role</p>
+              <p>A nail artist working alongside Desty in our private studio, giving each client unhurried, hand-finished work to the studio's standard.</p>
+            </div>
+            <div class="careers-block">
+              <p class="eyebrow">What we're looking for</p>
+              <ul class="careers-list">
+                <li>Six months or more of nail experience, with strong manicure skills</li>
+                <li>A portfolio of your work to share</li>
+                <li>Conversational or fluent English</li>
+                <li>Based in or near Ubud or Gianyar</li>
+                <li>Friendly, responsible, and good with clients</li>
+                <li>Eager to learn and open to training</li>
+              </ul>
+            </div>
+            <div class="careers-block">
+              <p class="eyebrow">What we offer</p>
+              <ul class="careers-list">
+                <li>Competitive salary plus commission on every client</li>
+                <li>Four days off each month</li>
+                <li>Holiday bonus</li>
+                <li>Professional training and mentorship</li>
+                <li>Free manicure and pedicure</li>
+              </ul>
+            </div>
+            <div class="careers-block">
+              <p class="eyebrow">Studio</p>
+              <p>Deju Studio, Jl. Tirta Tawar, Petulu, Ubud, Bali</p>
+            </div>
+          </div>
+
+          <div class="careers-form-wrap" data-reveal>
+            <form name="careers-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/careers-thanks" class="careers-form">
+              <input type="hidden" name="form-name" value="careers-application">
+              <p class="careers-hp"><label>Leave this field empty: <input name="bot-field"></label></p>
+
+              <div class="careers-field">
+                <label for="ca-name">Full name</label>
+                <input id="ca-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="careers-row">
+                <div class="careers-field">
+                  <label for="ca-age">Age</label>
+                  <input id="ca-age" name="age" type="number" min="17" max="70" inputmode="numeric" required>
+                </div>
+                <div class="careers-field">
+                  <label for="ca-area">Where are you based</label>
+                  <select id="ca-area" name="area" required>
+                    <option value="" disabled selected>Choose one</option>
+                    <option>Ubud</option>
+                    <option>Gianyar</option>
+                    <option>Within 4 km of Ubud</option>
+                    <option>Elsewhere</option>
+                  </select>
+                </div>
+              </div>
+              <div class="careers-row">
+                <div class="careers-field">
+                  <label for="ca-email">Email</label>
+                  <input id="ca-email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="careers-field">
+                  <label for="ca-phone">WhatsApp or phone</label>
+                  <input id="ca-phone" name="phone" type="tel" autocomplete="tel" required>
+                </div>
+              </div>
+              <div class="careers-row">
+                <div class="careers-field">
+                  <label for="ca-exp">Years of nail experience</label>
+                  <select id="ca-exp" name="experience" required>
+                    <option value="" disabled selected>Choose one</option>
+                    <option>Less than 6 months</option>
+                    <option>6 to 12 months</option>
+                    <option>1 to 2 years</option>
+                    <option>3 years or more</option>
+                  </select>
+                </div>
+                <div class="careers-field">
+                  <label for="ca-mani">Manicure experience</label>
+                  <select id="ca-mani" name="manicure_experience" required>
+                    <option value="" disabled selected>Choose one</option>
+                    <option>Strong, it is my main work</option>
+                    <option>Some experience</option>
+                    <option>Little or none</option>
+                  </select>
+                </div>
+              </div>
+              <div class="careers-row">
+                <div class="careers-field">
+                  <label for="ca-english">English level</label>
+                  <select id="ca-english" name="english_level" required>
+                    <option value="" disabled selected>Choose one</option>
+                    <option>Fluent</option>
+                    <option>Conversational</option>
+                    <option>Basic</option>
+                  </select>
+                </div>
+                <div class="careers-field">
+                  <label for="ca-train">Open to training</label>
+                  <select id="ca-train" name="open_to_training" required>
+                    <option value="" disabled selected>Choose one</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="careers-field">
+                <label for="ca-portfolio">Portfolio link (Instagram or Google Drive)</label>
+                <input id="ca-portfolio" name="portfolio_link" type="url" placeholder="https://instagram.com/yourwork" required>
+              </div>
+              <div class="careers-field">
+                <label for="ca-file">Portfolio photos or PDF (optional)</label>
+                <input id="ca-file" name="portfolio_file" type="file" accept="image/*,application/pdf">
+              </div>
+              <div class="careers-field">
+                <label for="ca-about">Tell us a little about you</label>
+                <textarea id="ca-about" name="about" rows="4" required></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Send application <span class="arrow">&rarr;</span></button>
+              <p class="careers-note small">We reply to every application by email. Bookings stay on WhatsApp, applications come here.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="surface-forest closing-cta" id="book">
       <div class="container" data-reveal>
         <p class="eyebrow">Booking</p>
@@ -781,6 +958,10 @@
         <div>
           <p class="eyebrow">Follow</p>
           <p><a href="https://instagram.com/dejustudio" target="_blank" rel="me noopener">@dejustudio</a></p>
+        </div>
+        <div>
+          <p class="eyebrow">Careers</p>
+          <p><a href="#careers">We're hiring nail artists</a></p>
         </div>
       </div>
       <hr class="site-footer__rule">

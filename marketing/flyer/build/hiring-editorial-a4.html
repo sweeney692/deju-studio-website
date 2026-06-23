@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Deju Studio - We're Hiring - Nail Artist - A4</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --forest:#1E5128; --forest-deep:#143B1C; --sage:#9CAE93;
+      --bone:#F2EBDD; --pure-bone:#FAF6EE; --onyx:#1A1A1A;
+      --brass:#B08D57; --brass-soft:#D4B98A; --whisper:#E8DFCC;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    @page{ size:A4; margin:0; }
+    html,body{ background:#cfc7b6; }
+    body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; color:var(--onyx);
+      -webkit-print-color-adjust:exact; print-color-adjust:exact; -webkit-font-smoothing:antialiased; }
+    .sheet{ position:relative; width:210mm; height:297mm; overflow:hidden;
+      background:radial-gradient(120% 80% at 50% -10%, var(--pure-bone) 0%, var(--bone) 55%, #ece3d2 100%);
+      padding:14mm 18mm 0; display:flex; flex-direction:column; align-items:center; }
+    .sheet::before,.sheet::after{ content:""; position:absolute; width:70mm; height:70mm;
+      border:0.5mm solid var(--brass); border-radius:50%; opacity:.22; }
+    .sheet::before{ top:-34mm; right:-30mm; }
+    .sheet::after{ bottom:-38mm; left:-32mm; border-color:var(--sage); opacity:.28; }
+
+    .logo{ width:38mm; height:auto; }
+    .eyebrow{ font-size:8.5pt; letter-spacing:.34em; text-transform:uppercase; color:var(--brass);
+      font-weight:600; margin-top:3mm; text-align:center; }
+    .rule{ width:18mm; height:0.5mm; background:var(--brass); margin:3mm auto 0; opacity:.7; }
+
+    .hero{ text-align:center; margin-top:3mm; }
+    .hero h1{ font-family:'Fraunces',Georgia,serif; color:var(--forest); font-weight:500;
+      font-size:38pt; line-height:.96; letter-spacing:-.015em; }
+    .hero h1 .ital{ display:block; font-style:italic; font-weight:400; font-size:18pt; margin-top:1.5mm; color:#3a352c; }
+
+    figure.photo{ margin-top:6mm; width:104mm; height:104mm; overflow:hidden; border:1.6mm solid var(--pure-bone);
+      border-radius:54% 46% 53% 47% / 52% 51% 49% 48%;
+      filter:drop-shadow(0 4mm 4.5mm rgba(20,59,28,.22)); }
+    figure.photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 18%; display:block; }
+
+    .cols{ width:100%; margin-top:7mm; display:flex; align-items:flex-start; gap:0; }
+    .col{ flex:1; padding:0 7mm; }
+    .col h2{ font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:500;
+      color:var(--forest); font-size:13pt; line-height:1.04; text-align:center; margin-bottom:3.5mm; }
+    .col ul{ list-style:none; display:flex; flex-direction:column; gap:2.4mm; }
+    .col li{ position:relative; padding-left:6mm; font-size:10.5pt; line-height:1.3; color:#3a352c; }
+    .col li::before{ content:""; position:absolute; left:0; top:1.9mm; width:2mm; height:2mm; background:var(--brass); }
+    .vdiv{ flex:0 0 auto; width:0.4mm; align-self:stretch; background:var(--whisper); }
+
+    .foot{ width:100%; margin-top:auto; background:var(--forest); color:var(--bone);
+      padding:7mm 11mm; display:flex; align-items:center; gap:8mm; }
+    .foot .qr{ flex:0 0 auto; width:28mm; height:28mm; background:var(--bone); padding:2mm; }
+    .foot .qr img{ width:100%; height:100%; display:block; }
+    .foot .cta{ flex:1; }
+    .foot .rlabel{ font-size:8pt; letter-spacing:.24em; text-transform:uppercase; color:var(--brass-soft); font-weight:600; }
+    .foot .url{ font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:17pt; line-height:1.05; margin-top:1.5mm; }
+    .foot .sub{ margin-top:2mm; font-size:8.5pt; color:var(--whisper); line-height:1.4; }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <img class="logo" src="{{asset:logo-forest-trim.png}}" alt="Deju Private Nail Studio">
+    <div class="eyebrow">Now hiring &middot; Ubud, Bali</div>
+    <div class="rule"></div>
+
+    <section class="hero">
+      <h1>Nail Artist<span class="ital">join our private studio</span></h1>
+    </section>
+
+    <figure class="photo"><img src="{{asset:hiring-1.jpg}}" alt="Hand-painted nail art by Deju Studio"></figure>
+
+    <section class="cols">
+      <div class="col">
+        <h2>What you bring</h2>
+        <ul>
+          <li>6+ months of nail experience</li>
+          <li>Strong manicure skills</li>
+          <li>A portfolio to share</li>
+          <li>English, friendly, reliable</li>
+          <li>Near Ubud or Gianyar</li>
+        </ul>
+      </div>
+      <div class="vdiv"></div>
+      <div class="col">
+        <h2>What we offer</h2>
+        <ul>
+          <li>Competitive salary plus commission</li>
+          <li>Four days off each month</li>
+          <li>Holiday bonus</li>
+          <li>Professional training</li>
+          <li>Free manicure and pedicure</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="qr"><img src="{{asset:qr-hiring.png}}" alt="Scan to apply"></div>
+      <div class="cta">
+        <div class="rlabel">Apply online</div>
+        <div class="url">dejustudio.com/careers</div>
+        <div class="sub">Scan the code or visit the link. Applications by website, not WhatsApp.</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

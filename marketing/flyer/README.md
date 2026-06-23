@@ -12,6 +12,7 @@ no npm.
 |---|---|---|
 | **Mani + Pedi / Refer-a-Friend promo** | `build/promo-editorial-*.html` | Current. Editorial direction only. |
 | **Press On Nails Workshop** | `build/editorial-*.html`, `build/photographic-*.html` | Shipped 2026-06-13. |
+| **Nail Artist hiring** | `build/hiring-editorial-*.html` | Shipped 2026-06-23. Drives to `dejustudio.com/careers` via QR. Photos in `Hiring/`. Campaign + backend in `marketing/hiring-campaign/`. Story/IG vertical stack; FB is side-by-side; A4 for print/WhatsApp. |
 
 The promo's **Bold** direction was tried and retired (squashed nails, busy
 background); its files are kept locally in `_archive/` (gitignored), not in the repo.
