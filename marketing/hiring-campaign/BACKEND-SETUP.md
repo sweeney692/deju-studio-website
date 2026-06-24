@@ -40,14 +40,25 @@ Each submission's `data` object holds the fields. The agent ranks and outputs a 
 
 **Optional (only if you want a spreadsheet view or persistent score write-back):** create a Google Sheet, paste `apps-script.gs` into Extensions -> Apps Script, deploy it as a Web app, and add its URL as a Netlify **outgoing webhook** (Forms -> notifications -> Outgoing webhook) so each submission also appends a row. Not needed otherwise.
 
-## Step 4 - GA4 conversion (already wired)
+## Step 4 - GA4 conversion (DONE 2026-06-24)
 
-The thank-you page `careers-thanks.html` fires `gtag('event', 'generate_lead', ...)` on load. In GA4:
-1. **Admin -> Events** - after the first real submissions, mark `generate_lead` as a **key event (conversion)**.
-2. Optionally import it into Google Ads as a conversion if you ever run search ads for hiring.
-3. This is the success KPI for the Meta campaign (see `CAMPAIGN-BRIEF.md`), measured per `utm_source` (meta vs flyer).
+The thank-you page `careers-thanks.html` fires `gtag('event', 'generate_lead', ...)` on load.
+- `generate_lead` is now a **key event** in GA4, created `ONCE_PER_SESSION` with no default value. **The GA4 "Key events" UI was hard to locate, so it was created via the GA4 Admin API** (`keyEvents.create`) using the `analytics-mcp` service-account key, which was upgraded from Viewer to **Editor** on the property to allow the write. The Admin-API recipe (mint a JWT with `openssl`, scope `analytics.edit`) is in the root `CLAUDE.md` and memory (`project_ga_mcp`).
+- **Verified end to end 2026-06-24:** a real test submission produced `generate_lead` = 1 event / 1 key event in GA4.
+- This is the success KPI for the Meta campaign (see `CAMPAIGN-BRIEF.md`), measured per `utm_source` (`instagram` vs flyer). Monitor via the `analytics-mcp`.
+- Optionally import it into Google Ads as a conversion if you ever run search ads for hiring.
 
-## Step 5 - Hand off to the screening agent
+## Step 5 - Applicant auto-reply email (IN PROGRESS - blocked on domain transfer)
+
+Goal: send each applicant a branded confirmation email automatically. Netlify Forms has **no native autoresponder** (its notification only emails the studio), so this is done with a small in-repo function.
+
+- **Code (committed, dormant):** `netlify/functions/submission-created.mjs`. Netlify auto-invokes any function named `submission-created` on every verified submission. It reads the applicant `email`/`name` and sends a confirmation from `careers@dejustudio.com` (reply-to `info.dejustudio@gmail.com`) via the **Resend** HTTP API. Zero dependencies (global `fetch`, `.mjs`), so no build step. It fails quietly if the API key or domain is not yet configured, so it does not affect form submissions.
+- **Blocker:** Resend domain verification needs an **MX record on a `send.` subdomain**, which **Wix DNS does not support** for Wix-registered domains. Wix also **does not allow changing nameservers** for its own domains, so Cloudflare DNS can only be reached by **transferring the domain off Wix**.
+- **Decision:** transfer `dejustudio.com` away from Wix (auth code requested from Wix support 2026-06-24) → a transfer-friendly registrar (e.g. Porkbun/Namecheap) → point nameservers at Cloudflare (zone already built) → add Resend's DNS records there.
+- **To finish once DNS is on Cloudflare:** verify the domain in Resend, set `RESEND_API_KEY` as a Netlify env var, push to deploy, submit a real application to test, then delete the test submission.
+- Full saga + the lighter alternative we did **not** take (switch to a CNAME/TXT-verifiable provider like SendGrid/Brevo and stay on Wix) is in `Summaries/2026-06-24-ig-launch-keyevent-autoreply-domain-transfer.md`.
+
+## Step 6 - Hand off to the screening agent
 
 Once applications are arriving in the Sheet, the **Agent Forge `app-screener`** reads the Sheet, scores each candidate against the rubric, and produces a ranked shortlist with reasons. See `/Users/conorsweeney/Agent Forge/agents/app-screener/` (Phase 2). Start by running it manually over the first batch and checking its ranking against your own judgment before trusting it.
 

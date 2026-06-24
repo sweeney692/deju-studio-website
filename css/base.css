@@ -80,7 +80,4 @@ section { padding-block: var(--space-10); }
 }
 
 /* Utilities */
-.stack > * + * { margin-top: var(--space-5); }
-.stack-lg > * + * { margin-top: var(--space-7); }
 .text-center { text-align: center; }
-.divider-brass { border: 0; border-top: 1px solid var(--brass); margin-block: var(--space-5); }
