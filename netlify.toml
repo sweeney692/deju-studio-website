@@ -26,6 +26,49 @@
   to = "/#careers"
   status = 301
 
+# Tolerant careers aliases - hiring-campaign links (IG bio, story stickers, typed
+# flyer URLs) must never 404. Netlify redirect matching is case-sensitive and
+# exact, so every plausible variant is listed explicitly. All land on /#careers.
+[[redirects]]
+  from = "/Careers"
+  to = "/#careers"
+  status = 301
+
+[[redirects]]
+  from = "/careers/*"
+  to = "/#careers"
+  status = 301
+
+[[redirects]]
+  from = "/career"
+  to = "/#careers"
+  status = 301
+
+[[redirects]]
+  from = "/hiring"
+  to = "/#careers"
+  status = 301
+
+[[redirects]]
+  from = "/jobs"
+  to = "/#careers"
+  status = 301
+
+[[redirects]]
+  from = "/job"
+  to = "/#careers"
+  status = 301
+
+[[redirects]]
+  from = "/apply"
+  to = "/#careers"
+  status = 301
+
+[[redirects]]
+  from = "/apply-now"
+  to = "/#careers"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
