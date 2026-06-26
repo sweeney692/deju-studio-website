@@ -28,9 +28,10 @@ Applications go through the **website only**, never the WhatsApp booking line (w
 - **Screening agent (separate repo):** `~/Agent Forge/agents/app-screener/` - reads applications from the Netlify Forms API, scores against the role rubric, surfaces a ranked shortlist.
 - **Analytics:** the Deju GA4 (property `534840336`) is queryable via the `analytics-mcp` MCP server for monitoring the campaign (sessions by source, `generate_lead` form submissions). Setup recorded in memory (`project_ga_mcp`).
 
-## Current status (2026-06-24)
+## Current status (updated 2026-06-26)
 
 - Careers page + form: **live in production**, form detection on, studio email notifications on.
+- Careers links + mobile landing: **fixed 2026-06-26.** All `/careers` variants resolve (no more 404s from hand-typed/bio links), and the link lands visitors on the application form rather than the FAQ section. Use `…/careers?utm_source=ig&utm_medium=social&utm_campaign=hiring` for Desty's organic posts. See `Summaries/2026-06-26-careers-link-404-and-mobile-landing-fix.md`.
 - GA4 `generate_lead`: **done** - registered as a key event and **verified firing** end to end.
 - Flyers: **final** - the four vertical placements (A4, Story, IG, FB) plus a new **1.91:1 landscape** (`Deju - Hiring - Editorial - Landscape 1200x628.png`) added 2026-06-24 for Meta. Written-link CTA, no QR.
 - Meta campaign: **built in Ads Manager (Instagram-only), pending Meta review/approval**. Manual Traffic campaign, landing-page-views goal, Ubud+Gianyar, IG-only placements. A/B: Story + 1080x1350. Then monitor + organic amplification.

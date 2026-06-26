@@ -13,7 +13,7 @@ Marketing website for [Deju Studio](https://www.dejustudio.com), an ultra-premiu
 ## Stack
 
 - Hand-written HTML5, vanilla CSS, vanilla JS. No framework, no build step.
-- Single-page editorial layout. All sections live in [`index.html`](index.html). Section anchors: `#about` (Philosophy + Specialisations + Book CTA), `#artist` (Meet Desty), `#services` (price carousel), `#gallery` (scattered grid with centre Book CTA), `#visit` (contact + map), `#reviews`, `#faq` (22-question accordion), `#book` (closing CTA).
+- Single-page editorial layout. All sections live in [`index.html`](index.html). Section anchors: `#about` (Philosophy + Specialisations + Book CTA), `#artist` (Meet Desty), `#services` (price carousel), `#gallery` (scattered grid with centre Book CTA), `#visit` (contact + map), `#reviews`, `#faq` (22-question accordion), `#careers` (Nail Artist hiring + application form), `#book` (closing CTA).
 - Hosted on Netlify, deployed automatically on push to `main`.
 - **SEO + GEO foundation** is live: 4 JSON-LD blocks (BeautySalon, Person, OfferCatalog, FAQPage), `/llms.txt` + `/llms-full.txt` for AI crawlers, robots.txt with explicit AI bot allow-list, image sitemap, CSP + HSTS headers. Full strategy: `Deju-Online-Presence-Brief.md` (gitignored).
 
@@ -33,7 +33,7 @@ Marketing website for [Deju Studio](https://www.dejustudio.com), an ultra-premiu
 │   ├── config.js               Single source of truth (WhatsApp number, message templates, analytics IDs)
 │   ├── whatsapp.js             Wires every [data-wa] CTA to a pre-filled wa.me link, fires Ads conversion on click
 │   ├── analytics.js            GA4 + Google Ads loader (loads gtag using Ads ID as primary, see notes below)
-│   ├── nav.js                  Mobile nav toggle
+│   ├── nav.js                  Mobile nav toggle + deep-anchor landing fix (re-snaps to #hash after lazy-load reflow; cache-busted via ?v= in index.html)
 │   ├── gallery.js              Lightbox for the gallery
 │   ├── carousel.js             Services price-list carousel (with dots + arrows)
 │   └── reveal.js               IntersectionObserver-driven reveal-on-scroll
@@ -43,9 +43,12 @@ Marketing website for [Deju Studio](https://www.dejustudio.com), an ultra-premiu
 ├── scripts/optimize-images.sh  Regenerates assets/img/ from the source folder
 ├── marketing/                  Off-site marketing collateral (not served by the website)
 │   ├── flyer/                  Promo, workshop + hiring flyers - HTML templates → Chrome export. See marketing/flyer/README.md
+│   ├── hiring-campaign/        Nail Artist hiring: Meta IG ad plan, backend setup, screening notes. See its README.md
 │   └── tabletent/              Partner-restaurant table-tent print artwork (one HTML per partner)
 ├── Summaries/                  Session-by-session change summaries (human-readable history, tracked)
-├── netlify.toml                Publish + redirects (legacy /about.html → /#about etc) + cache + CSP/HSTS headers
+├── careers-thanks.html         Application success page - fires the GA4 generate_lead key event
+├── netlify/functions/          submission-created.mjs - applicant auto-reply email via Resend (dormant; see hiring-campaign docs)
+├── netlify.toml                Publish + redirects (legacy /about.html → /#about, /careers + tolerant aliases → /#careers) + cache + CSP/HSTS headers
 ├── robots.txt                  Explicit allow-list for 18 AI/search crawlers (GPTBot, ClaudeBot, etc.)
 ├── sitemap.xml                 With image sitemap + lastmod
 ├── llms.txt                    AI-crawler navigation file (Jeremy Howard's emerging standard)

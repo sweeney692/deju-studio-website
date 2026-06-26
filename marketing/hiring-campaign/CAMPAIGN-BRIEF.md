@@ -66,7 +66,9 @@ We are hiring nail artists in Ubud. Apply at dejustudio.com/careers
 ## 5. Organic amplification (free, do alongside the ads)
 
 - Post the **Story** to Deju's Instagram + Facebook Stories, and pin the **1080x1350** to the feed.
-- Put the careers link in the **Instagram bio** for the duration.
+- Put the careers link in the **Instagram bio** for the duration. **Use this exact link for all of Desty's organic posts** (bio, Story link stickers, captions):
+  `https://www.dejustudio.com/careers?utm_source=ig&utm_medium=social&utm_campaign=hiring`
+  (`utm_source=ig` keeps organic Instagram distinct from the paid `instagram` source in GA4.) Any casing/variant of `/careers` now resolves, but lowercase is cleanest.
 - Post the **A4** as **Desty's WhatsApp Status** - it reaches her nail-world network directly.
 - Share the A4 in relevant **Ubud / Bali job and nail-tech Facebook groups**.
 - Consider **boosting the real feed post** (social proof from comments/likes) rather than only running a dark ad.
@@ -74,6 +76,7 @@ We are hiring nail artists in Ubud. Apply at dejustudio.com/careers
 ## 6. Tracking and KPIs
 
 - **UTMs:** the ad link carries `utm_source=instagram&utm_medium=paid` (set it on the destination URL in Ads Manager). The flyer now uses a written link (no QR), so people typing `dejustudio.com/careers` arrive as Direct/typed traffic in GA4. If you want flyer attribution, print a short redirect link that appends `utm_source=flyer` (optional).
+- **Link robustness (fixed 2026-06-26):** `/careers` and every plausible variant (`/Careers`, `/career`, `/hiring`, `/jobs`, `/apply`, ...) now resolve, and the careers link lands visitors directly on the application form on mobile (a lazy-load reflow bug previously parked them on the FAQ section). Details: `Summaries/2026-06-26-careers-link-404-and-mobile-landing-fix.md`. Note: GA4 records the careers link's landing page as `/` (the `/careers` redirect resolves to `/` and GA strips utm + the `#careers` fragment), so the GA landing-page dimension is **not** evidence the ad is misrouted - the destination is correct.
 - **Success metric:** completed applications (GA4 `generate_lead` form-submit event - see `BACKEND-SETUP.md` to wire it), not clicks.
 - **Watch daily for the first 3 days:** CPM, CPC, landing-page views, then consolidate to the winning ad.
 - **Realistic expectation:** ~$61 in a hyperlocal audience yields roughly tens of thousands of impressions and a few hundred to ~1,000 clicks. Treat the ad as one of three channels (ads + organic + flyer). For 3 hires in a tight community, the combined reach is enough.
