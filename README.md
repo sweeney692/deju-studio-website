@@ -13,7 +13,7 @@ Marketing website for [Deju Studio](https://www.dejustudio.com), an ultra-premiu
 ## Stack
 
 - Hand-written HTML5, vanilla CSS, vanilla JS. No framework, no build step.
-- Single-page editorial layout. All sections live in [`index.html`](index.html). Section anchors: `#about` (Philosophy + Specialisations + Book CTA), `#artist` (Meet Desty), `#services` (price carousel), `#gallery` (scattered grid with centre Book CTA), `#visit` (contact + map), `#reviews`, `#faq` (22-question accordion), `#careers` (Nail Artist hiring + application form), `#book` (closing CTA).
+- Single-page editorial layout. All sections live in [`index.html`](index.html). Section anchors: `#about` (Philosophy + Specialisations + Book CTA), `#artist` (Meet Desty), `#services` (price carousel), `#gallery` (scattered grid with centre Book CTA), `#visit` (contact + map), `#reviews`, `#faq` (22-question accordion), `#careers` (Nail Artist hiring + application form; a portfolio of 5+ examples is required), `#book` (closing CTA).
 - Hosted on Netlify, deployed automatically on push to `main`.
 - **SEO + GEO foundation** is live: 4 JSON-LD blocks (BeautySalon, Person, OfferCatalog, FAQPage), `/llms.txt` + `/llms-full.txt` for AI crawlers, robots.txt with explicit AI bot allow-list, image sitemap, CSP + HSTS headers. Full strategy: `Deju-Online-Presence-Brief.md` (gitignored).
 
@@ -146,6 +146,7 @@ After deploying, hard-reload to bypass cached CSS/JS. On iOS Safari the easiest 
   - A `@` → `75.2.60.5`
   - CNAME `www` → `dejustudio.netlify.app`
 - Netlify holds the custom domain + Let's Encrypt SSL (auto-renews).
+- **Planned: transfer `dejustudio.com` off Wix to Cloudflare DNS** (to unblock the dormant applicant auto-reply email, which needs DNS records Wix won't host). This will **not** take the site offline if sequenced right: the registrar transfer keeps resolving via Wix nameservers throughout, and the nameserver flip to Cloudflare is seamless as long as the Cloudflare zone mirrors the records above (`A @ → 75.2.60.5`, `CNAME www → dejustudio.netlify.app`, both DNS-only so Netlify keeps terminating SSL) before the flip. Full runbook + safeguards in `CLAUDE.md` (item 8) and `Summaries/2026-06-27-app-screener-activation-and-portfolio-rule.md`.
 
 ## Brand reference
 
